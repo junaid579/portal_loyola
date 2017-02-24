@@ -11,10 +11,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 @include('layout.messages')
 
-{{-- <?php $classnames = array();
-foreach ($classes as $class) {
-    $classnames[$class->id] = $class->class_name;
-}?> --}}
+
 
 @include('layout.formopen',array('formheading'=>'Add Classes','action'=>'classes','fnid'=>'submit_classs'))
 {{-- @include('layout.formselect',array('ft'=>'Classes','fin'=>'class_id','data'=>$classes,'index'=>'id','value'=>'class_name','fiv'=>'')) --}}
@@ -40,19 +37,6 @@ foreach ($classes as $class) {
     <tfoot>
         <tr>
             <th> - </th>
-            {{-- <th>
-                <select name="search_class" id="search_class" class="form-control form-filter">
-                <option value="" selected="selected">Select</option>
-<?php foreach ($classes as $class) {
-    $selected = "";
-    if ($search_class == $class->id) {
-        $selected = 'selected="selected"';
-    }?>
-                        <option value="<?php echo $class->id;?>" <?php echo $selected;
-    ?> > <?php echo $class->class_name;?></option>
-    <?php }?>
-                </select>
-            </th> --}}
             <th> <input type="text" name="search_class" id="search_class" value="<?php echo $search_class;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_sequences" id="search_sequences" value="<?php echo $search_sequences;?>" class="form-control form-filter"/></th>
             <th>
@@ -65,7 +49,7 @@ foreach ($classes as $class) {
             </th>
             <th>
                 <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="sections"><i class="fa fa-times"></i> Reset</a>
+                <a  class="btn btn-sm red btn-outline filter-cancel" href="classes"><i class="fa fa-times"></i> Reset</a>
             </th>
         </tr>
     </tfoot>
@@ -76,12 +60,12 @@ foreach ($classes as $class) {
         <tr class="<?php echo $odd_even;?>">
             <td class="SNO"> </td>
             <td> {{ $classes->class_name }} </td>
-            <td> {{ $sections->sequence }} </td>
-            <td>    <?php if ($sections->status == 1) {?>
+            <td> {{ $classes->sequence }} </td>
+            <td>    <?php if ($classes->status == 1) {?>
     <span class="label label-sm label-info"> Active </span>
-    <?php } else if ($sections->status == 2) {?>
+    <?php } else if ($classes->status == 2) {?>
     <span class="label label-sm label-warning"> Suspended </span>
-    <?php } else if ($sections->status == 0) {?>
+    <?php } else if ($classes->status == 0) {?>
     <span class="label label-sm label-danger"> Deleted </span>
     <?php }?>
 </td>
@@ -92,7 +76,7 @@ foreach ($classes as $class) {
                     </button>
                     <ul class="dropdown-menu pull-left" role="menu">
                         <li>
-                            <a data-toggle="modal" href="#view-data-model" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $sections->sequence }}" class="view-data"><i class="icon-docs"></i> View </a>
+                            <a data-toggle="modal" href="#view-data-model" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $classes->sequence }}" class="view-data"><i class="icon-docs"></i> View </a>
                         </li>
                         <li>
                             <a data-toggle="modal" href="#responsive" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $classes->sequence }}" class="edit-data"><i class="icon-tag"></i> Edit </a>

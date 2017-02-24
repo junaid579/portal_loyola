@@ -17,7 +17,7 @@ Route::get('/dashboard', 'userController@dashboard');
 Route::get('/logout', 'welcomeController@logout');
 
 Route::get('/classes', 'classesController@index');
-Route::post('/classes', 'classesController@insert');
+Route::post('/classes', 'classesController@findAction');
 Route::put('/classes', 'classesController@update');
 Route::get('/classes/{id}/{status}', 'classesController@statusupdate');
 
