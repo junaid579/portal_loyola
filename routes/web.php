@@ -37,7 +37,7 @@ Route::get('/transportPickup/{id}/{status}', 'transportPickupController@statusup
 
 
 Route::get('/staff', 'staffController@index');
-Route::post('/staff', 'staffController@insert');
+Route::post('/staff', 'staffController@findAction');
 Route::put('/staff', 'staffController@update');
 Route::get('/staff/{id}/{status}', 'staffController@statusupdate');
 

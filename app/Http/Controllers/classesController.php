@@ -61,9 +61,9 @@ class classesController extends Controller {
 
             $query = classesModel::select('*');
 
-            if ($s_class != "") {$query   = $query->where('class_name', '=', $s_class);}
-            if ($s_sequences != "") {$query = $query->where('sequence', '=', $s_sequences);}
-            if ($s_status != "") {$query    = $query->where('status', '=', $s_status);}
+            if ($s_class != "") {$query   = $query->where('class_name', 'like',"%".$s_class."%");}
+            if ($s_sequences != "") {$query = $query->where('sequence', 'like',"%".$s_sequences."%");}
+            if ($s_status != "") {$query    = $query->where('status', 'like',"%".$s_status."%");}
 
             $allclasses = $query->get();
 
