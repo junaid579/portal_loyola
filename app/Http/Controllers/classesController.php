@@ -11,7 +11,6 @@ use DB;
 
 class classesController extends Controller
 {
-    
     public function index(){
         $allclasses = classesModel::all()->where('status','!=',0)->sortByDesc("sequences");
         
