@@ -28,6 +28,12 @@ Route::put('/sections', 'sectionsController@update');
 Route::get('/sections/{id}/{status}', 'sectionsController@statusupdate');
 
 
+Route::get('/occupation', 'occupationController@index');
+Route::post('/occupation', 'occupationController@findAction');
+Route::put('/occupation', 'occupationController@update');
+Route::get('/occupation/{id}/{status}', 'occupationController@statusupdate');
+
+
 
 
 Route::get('/transportPickup', 'transportPickupController@index');
