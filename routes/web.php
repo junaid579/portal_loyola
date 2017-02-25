@@ -34,6 +34,11 @@ Route::put('/occupation', 'occupationController@update');
 Route::get('/occupation/{id}/{status}', 'occupationController@statusupdate');
 
 
+Route::get('/feeTypes', 'feeTypesController@index');
+Route::post('/feeTypes', 'feeTypesController@findAction');
+Route::put('/feeTypes', 'feeTypesController@update');
+Route::get('/feeTypes/{id}/{status}', 'feeTypesController@statusupdate');
+
 
 
 Route::get('/transportPickup', 'transportPickupController@index');
