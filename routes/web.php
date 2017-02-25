@@ -52,6 +52,13 @@ Route::post('/staff', 'staffController@findAction');
 Route::put('/staff', 'staffController@update');
 Route::get('/staff/{id}/{status}', 'staffController@statusupdate');
 
+
+
+Route::get('/caste', 'casteController@index');
+Route::post('/caste', 'casteController@findAction');
+Route::put('/caste', 'casteController@update');
+Route::get('/caste/{id}/{status}', 'casteController@statusupdate');
+
 /* Route::post('login', function () {
     echo $_POST['username'];
 }); */
