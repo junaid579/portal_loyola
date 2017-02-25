@@ -44,7 +44,7 @@ return [
             'port' => '3306',
             'database' => 'loyola_mod_master',
             'username' => 'root',
-            'password' => 'Khan123*',
+            'password' => 'Admin123*',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
