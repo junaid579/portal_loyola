@@ -4,6 +4,7 @@ reated by https://www.gitignore.io/api/laravel,phpstorm,sublimetext,macos
 vendor/
 node_modules/
 npm-debug.log
+resources/views/.DS_Store
 
 # Laravel 4 specific
 bootstrap/compiled.php
