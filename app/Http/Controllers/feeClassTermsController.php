@@ -15,16 +15,13 @@ class feeClassTermsController extends Controller
 {
     
     public function index(){
-
     	$allterms = feeClassTermsModel::all()->where('status','!=',0);
+    	$data = array('allterms'=>$allterms);
         $classes = classesModel::all()->where('status','=',1)->sortByDesc("sequences");
+        $data_class = array('classes'=>$classes);
         $types = feeTypesModel::all()->where('status','=',1);
-        return view('feeClassTerms') ->with(compact('allterms', 'classes', 'types'));
-
-        // Data arrays 
-        // $data = array('allterms'=>$allterms);
-        // $data_class = array('classes'=>$classes);
-        // $data_fee_types = array('types'=>$types);
+        $data_fee_types = array('types'=>$types);
+        return view('feeClassTerms')->with($data)->with($data_class)->with($data_fee_types);
     } 
 
     public function insert(Request $request){

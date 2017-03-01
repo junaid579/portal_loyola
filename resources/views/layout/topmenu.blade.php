@@ -1,4 +1,3 @@
-
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
         <div class="page-wrapper">
             <!-- BEGIN HEADER -->
@@ -8,7 +7,7 @@
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                         <a href="index.html">
-                            <img src= "{{ URL::asset('assets/layouts/layout/img/logo.png') }}" alt="logo" class="logo-default" /> </a>
+                            <img src="{{ URL::asset('assets/layouts/layout/img/logo.png') }}" alt="logo" class="logo-default" /> </a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
                         </div>
@@ -24,17 +23,16 @@
                         <ul class="nav navbar-nav pull-right">
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src= "{{ URL::asset('assets/layouts/layout/img/avatar3_small.jpg') }}"/>
-                                  <span class="username username-hide-on-mobile"> <?php echo Session::get('user_name') ?> </span>
+                                    <img alt="" class="img-circle" src="{{ URL::asset('assets/layouts/layout/img/avatar3_small.jpg') }}" />
+                                    <span class="username username-hide-on-mobile"> 
+                                        {{ Session::get('username') }} 
+                                    </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                    <a href="/logout" class="nav-link nav-toggle">
-                                    <i class="icon-home"></i>
-                                    <span class="title">LOGOUT</span>
-                                    <span class="arrow"></span>
-                                </a>
+                                        <a href="logout">
+                                            <i class="icon-key"></i> Log Out </a>
                                     </li>
                                 </ul>
                             </li>
@@ -42,7 +40,7 @@
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-quick-sidebar-toggler">
-                                <a href="javascript:;" class="dropdown-toggle">
+                                <a href="logout" class="dropdown-toggle">
                                     <i class="icon-logout"></i>
                                 </a>
                             </li>

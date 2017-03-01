@@ -10,7 +10,7 @@ use Session;
 class subjectsModel extends MyBaseModel {
 
 	protected $connection = 'key';
-	protected $table = 'class_subjects';
+	protected $table = 'subjects';
 	public $timestamps  = false;
 
 }

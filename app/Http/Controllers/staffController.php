@@ -12,7 +12,7 @@ class staffController extends Controller {
 
     public function index() {
         $allstaff = staffModel::all()->where('status', '!=', 0);
-        
+
         $search_data = array(
             'search_f_name'     => "",
             'search_l_name'   => "",
@@ -21,19 +21,19 @@ class staffController extends Controller {
             'search_status'    => "",
         );
         return view('staff')->with(compact(
-                'allstaff'
-            ))->with($search_data);
+            'allstaff'
+        ))->with($search_data);
     }
 
     public function findAction(Request $request) {
         if ($request->has('insert_submit')) {
 
             $this->validate($request, [
-                    'f_name'   => 'required',
-                    'l_name'   => 'required',
-                    'mobile'   => 'required',
-                    'email'   => 'required',
-                ]);
+                'f_name'   => 'required',
+                'l_name'   => 'required',
+                'mobile'   => 'required',
+                'email'   => 'required',
+            ]);
 
             $stf               = new staffModel;
             $stf->f_name = $request->f_name;
@@ -79,24 +79,24 @@ class staffController extends Controller {
 
             $allstaff = $query->get();
 
-            
+
 
             return view('staff')->with(compact(
-                    'allstaff'
-                ))->with($search_data);
+                'allstaff'
+            ))->with($search_data);
         }
     }
 
     public function update(Request $request) {
 
         $this->validate($request, [
-                'edit_id'        => 'required',
-                'edit_f_name'   => 'required',
-                'edit_l_name'   => 'required',
-                'edit_mobile'   => 'required',
-                'edit_email'   => 'required',
-                'edit_section'   => 'required'
-            ]);
+            'edit_id'        => 'required',
+            'edit_f_name'   => 'required',
+            'edit_l_name'   => 'required',
+            'edit_mobile'   => 'required',
+            'edit_email'   => 'required',
+            'edit_section'   => 'required'
+        ]);
         $stf               = staffModel::find($request->edit_id);
         $stf->f_name = $request->edit_f_name;
         $stf->l_name     = $request->edit_l_name;

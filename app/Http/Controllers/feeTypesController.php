@@ -18,7 +18,7 @@ class feeTypesController extends Controller {
             'search_heading_on_bill' => "",
             'search_status'    => "",
         );
-        return view('feeTypes')->with(compact(
+        return view('feetypes')->with(compact(
             'allfeeTypes'
         ))->with($search_data);
     }
@@ -45,7 +45,7 @@ class feeTypesController extends Controller {
             } else {
                 Session::flash('error_message', 'Something went wrong! Try again!');
             }
-            return redirect('/feeTypes');
+            return redirect('/feetypes');
 
         } else if ($request->has('search_submit')) {
 
@@ -69,7 +69,7 @@ class feeTypesController extends Controller {
 
 
 
-            return view('feeTypes')->with(compact(
+            return view('feetypes')->with(compact(
                 'allfeeTypes'
             ))->with($search_data);
         }
@@ -94,7 +94,7 @@ class feeTypesController extends Controller {
             Session::flash('error_message', 'Something went wrong! Try again!');
         }
 
-        return redirect('/feeTypes');
+        return redirect('/feetypes');
     }
     public function statusupdate($id, $status) {
         $fty         = feeTypesModel::find($id);
@@ -109,7 +109,7 @@ class feeTypesController extends Controller {
         } else {
             Session::flash('error_message', 'Something went wrong! Try again!');
         }
-        return redirect('/feeTypes');
+        return redirect('/feetypes');
     }
 
     public function search(Request $request) {

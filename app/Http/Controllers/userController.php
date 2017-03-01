@@ -22,8 +22,8 @@ class userController extends Controller
     public function login(Request $request){
     	$result = userModel::findUser($request->username,$request->password);
         if(count($result) == 1){
-            Session::put('userid', $result['id']);     
-            Session::put('user_name', $result['user_name']); 
+            Session::put('userid', $result['id']); 
+            Session::put('username', $result['f_name']." ".$result['l_name']); 
             $db_con = yearDbDetailsModel::findOne($request->year);
             Session::put('session_host', $db_con['db_host']); 
             Session::put('session_port', $db_con['db_port']); 

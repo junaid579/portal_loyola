@@ -109,8 +109,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 @include('layout.modalformclose')
 
-@include('layout.footer')
 
-<script src="{{ URL::asset('js/caste.js') }}" type="text/javascript"></script>
+
+<?php $js = array("js/caste.js");?>
+@include('layout.footer',array('js' =>$js))
 
 

@@ -68,10 +68,10 @@ class sectionsController extends Controller {
 
 			$query = sectionsModel::select('*');
 
-			if ($s_class != "") {$query     = $query->where('class_id', 'like',"%".$s_class."%");}
-			if ($s_section != "") {$query   = $query->where('section_name', 'like',"%".$s_section."%");}
-			if ($s_sequences != "") {$query = $query->where('sequence', 'like',"%".$s_sequences."%");}
-			if ($s_status != "") {$query    = $query->where('status', 'like',"%".$s_status."%");}
+			if ($s_class != "") {$query     = $query->where('class_id', '=', $s_class);}
+			if ($s_section != "") {$query   = $query->where('section_name', '=', $s_section);}
+			if ($s_sequences != "") {$query = $query->where('sequence', '=', $s_sequences);}
+			if ($s_status != "") {$query    = $query->where('status', '=', $s_status);}
 
 			$allsections = $query->get();
 

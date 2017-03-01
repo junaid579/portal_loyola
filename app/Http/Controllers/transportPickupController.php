@@ -14,10 +14,8 @@ class transportPickupController extends Controller
     
     public function index(){
     	$allpickups = transportPickupModel::all()->where('status','!=',0);
-        return view('transportPickup') -> with(compact('allpickups'));
-
-        // $data = array('allpickups'=>$allpickups);
-        // return view('transportPickup')->with($data);
+    	$data = array('allpickups'=>$allpickups);
+        return view('transportPickup')->with($data);
     } 
 
     public function insert(Request $request){

@@ -13,14 +13,14 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 
 
-@include('layout.formopen',array('formheading'=>'Add Fee Type','action'=>'feeTypes','fnid'=>'submit_feeType'))
+@include('layout.formopen',array('formheading'=>'Add Fee Type','action'=>'feetypes','fnid'=>'submit_feeType'))
 @include('layout.forminputtext',array('ft'=>'Fee Name','fin'=>'fee_name','fph'=>'Fee Name','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Heading on the Bill','fin'=>'heading_on_bill','fph'=>'Heading on the Bill','fiv'=>''))
 @include('layout.formclose')
 
 @include('layout.datatableopening',array('tableheading'=>'Fee Types List'))
 
-<form action="feeTypes" method="POST" enctype="multipart/form-data">
+<form action="feetypes" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="post">
     <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
@@ -48,7 +48,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             </th>
             <th>
                 <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="feeTypes"><i class="fa fa-times"></i> Reset</a>
+                <a  class="btn btn-sm red btn-outline filter-cancel" href="feetypes"><i class="fa fa-times"></i> Reset</a>
             </th>
         </tr>
         </tfoot>
@@ -102,15 +102,14 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 @include('layout.forminputvalue',array('ft'=>'Heading on the Bill ','fin'=>'view_heading_on_bill'))
 @include('layout.modalviewformclose')
 
-@include('layout.modalformopen',array('mid'=>'responsive','formheading'=>'Edit Fee Types','action'=>'feeTypes','fnid'=>'edit_form'))
+@include('layout.modalformopen',array('mid'=>'responsive','formheading'=>'Edit Fee Types','action'=>'feetypes','fnid'=>'edit_form'))
 
 @include('layout.forminputtext',array('ft'=>'Fee Name','fin'=>'edit_fee_name','fph'=>'Fee Name','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Heading on the Bill','fin'=>'edit_heading_on_bill','fph'=>'Heading on the Bill','fiv'=>''))
 
 @include('layout.modalformclose')
 
-@include('layout.footer')
-
-<script src="{{ URL::asset('js/feeTypes.js') }}" type="text/javascript"></script>
+<?php $js = array("js/feeTypes.js");?>
+@include('layout.footer',array('js' =>$js))
 
 

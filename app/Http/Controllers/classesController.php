@@ -11,7 +11,7 @@ use Session;
 class classesController extends Controller {
 
     public function index() {
-        
+
         $allclasses     = classesModel::all()->where('status', '=', 1)->sortByDesc("sequences");
         $search_data = array(
             'search_class'     => "",
@@ -19,17 +19,17 @@ class classesController extends Controller {
             'search_status'    => "",
         );
         return view('classes')->with(compact(
-                'allclasses'
-            ))->with($search_data);
+            'allclasses'
+        ))->with($search_data);
     }
 
     public function findAction(Request $request) {
         if ($request->has('insert_submit')) {
 
             $this->validate($request, [
-                    'class'   => 'required',
-                    'sequences' => 'required'
-                ]);
+                'class'   => 'required',
+                'sequences' => 'required'
+            ]);
 
             $cls               = new classesModel;
             $cls->class_name   = $request->class;
@@ -67,21 +67,21 @@ class classesController extends Controller {
 
             $allclasses = $query->get();
 
-            
+
 
             return view('classes')->with(compact(
-                    'allclasses'
-                ))->with($search_data);
+                'allclasses'
+            ))->with($search_data);
         }
     }
 
     public function update(Request $request) {
 
         $this->validate($request, [
-                'edit_id'        => 'required',
-                'edit_sequences' => 'required',
-                'edit_class'   => 'required'
-            ]);
+            'edit_id'        => 'required',
+            'edit_sequences' => 'required',
+            'edit_class'   => 'required'
+        ]);
         $cls               = classesModel::find($request->edit_id);
         $cls->class_name = $request->edit_class;
         $cls->sequence     = $request->edit_sequences;

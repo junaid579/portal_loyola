@@ -22,10 +22,10 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 @include('layout.datatableopening',array('tableheading'=>'Classes List'))
 
 <form action="classes" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="_method" value="post">
-<input type="hidden" name="_token" value="<?php echo csrf_token();?>">
-<table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
-    <thead>
+    <input type="hidden" name="_method" value="post">
+    <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
+    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+        <thead>
         <tr>
             <th> SNO.</th>
             <th> Class </th>
@@ -33,8 +33,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> Status </th>
             <th> Actions </th>
         </tr>
-    </thead>
-    <tfoot>
+        </thead>
+        <tfoot>
         <tr>
             <th> - </th>
             <th> <input type="text" name="search_class" id="search_class" value="<?php echo $search_class;?>" class="form-control form-filter" /></th>
@@ -52,48 +52,48 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                 <a  class="btn btn-sm red btn-outline filter-cancel" href="classes"><i class="fa fa-times"></i> Reset</a>
             </th>
         </tr>
-    </tfoot>
-    <tbody><?php $i = 1;?>
-@foreach($allclasses as $classes)
-<?php if ($i%2 == 0) {$odd_even = "odd gradeX";} else { $odd_even = "even gradeX";}$i++;
-?>
-        <tr class="<?php echo $odd_even;?>">
-            <td class="SNO"> </td>
-            <td> {{ $classes->class_name }} </td>
-            <td> {{ $classes->sequence }} </td>
-            <td>    <?php if ($classes->status == 1) {?>
-    <span class="label label-sm label-info"> Active </span>
-    <?php } else if ($classes->status == 2) {?>
-    <span class="label label-sm label-warning"> Suspended </span>
-    <?php } else if ($classes->status == 0) {?>
-    <span class="label label-sm label-danger"> Deleted </span>
-    <?php }?>
-</td>
-            <td>
-                <div class="btn-group">
-                    <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown"> Actions
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu pull-left" role="menu">
-                        <li>
-                            <a data-toggle="modal" href="#view-data-model" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $classes->sequence }}" class="view-data"><i class="icon-docs"></i> View </a>
-                        </li>
-                        <li>
-                            <a data-toggle="modal" href="#responsive" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $classes->sequence }}" class="edit-data"><i class="icon-tag"></i> Edit </a>
-                        </li>
-                        <li class="divider"> </li>
-<?php if ($classes->status == 1) {?>
-    <li>
-    <?php } else if ($classes->status == 2) {?>
-    <li>
-    <?php }?>
-</ul>
-                </div>
-            </td>
-        </tr>
+        </tfoot>
+        <tbody><?php $i = 1;?>
+        @foreach($allclasses as $classes)
+            <?php if ($i%2 == 0) {$odd_even = "odd gradeX";} else { $odd_even = "even gradeX";}$i++;
+            ?>
+            <tr class="<?php echo $odd_even;?>">
+                <td class="SNO"> </td>
+                <td> {{ $classes->class_name }} </td>
+                <td> {{ $classes->sequence }} </td>
+                <td>    <?php if ($classes->status == 1) {?>
+                    <span class="label label-sm label-info"> Active </span>
+                    <?php } else if ($classes->status == 2) {?>
+                    <span class="label label-sm label-warning"> Suspended </span>
+                    <?php } else if ($classes->status == 0) {?>
+                    <span class="label label-sm label-danger"> Deleted </span>
+                    <?php }?>
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown"> Actions
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-left" role="menu">
+                            <li>
+                                <a data-toggle="modal" href="#view-data-model" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $classes->sequence }}" class="view-data"><i class="icon-docs"></i> View </a>
+                            </li>
+                            <li>
+                                <a data-toggle="modal" href="#responsive" data-id="{{ $classes->id }}" data-name="{{ $classes->class_name }}" data-sequence="{{ $classes->sequence }}" class="edit-data"><i class="icon-tag"></i> Edit </a>
+                            </li>
+                            <li class="divider"> </li>
+                            <?php if ($classes->status == 1) {?>
+                            <li>
+                            <?php } else if ($classes->status == 2) {?>
+                            <li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
         @endforeach
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </form>
 @include('layout.datatableclosing')
 
@@ -109,8 +109,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 @include('layout.forminputtext',array('ft'=>'Class','fin'=>'edit_class','fph'=>'Class','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Sequences','fin'=>'edit_sequences','fph'=>'Sequences','fiv'=>''))        @include('layout.modalformclose')
 
-@include('layout.footer')
-
-<script src="{{ URL::asset('js/classes.js') }}" type="text/javascript"></script>
+<?php $js = array("js/classes.js");?>
+@include('layout.footer',array('js' =>$js))
 
 

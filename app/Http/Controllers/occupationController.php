@@ -73,17 +73,10 @@ class occupationController extends Controller {
 
         $this->validate($request, [
             'edit_id'        => 'required',
-            'edit_f_name'   => 'required',
-            'edit_l_name'   => 'required',
-            'edit_mobile'   => 'required',
-            'edit_email'   => 'required',
-            'edit_section'   => 'required'
+            'edit_occupation_details'   => 'required'
         ]);
         $occ               = occupationModel::find($request->edit_id);
-        $occ->f_name = $request->edit_f_name;
-        $occ->l_name     = $request->edit_l_name;
-        $occ->mobile = $request->edit_mobile;
-        $occ->email     = $request->edit_email;
+        $occ->occupation_details = $request->edit_occupation_details;
         $occ->m_on         = DB::raw('NOW()');
         $occ->m_by         = Session::get('userid');
 

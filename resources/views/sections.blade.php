@@ -13,7 +13,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 <?php $classnames = array();
 foreach ($classes as $class) {
-    $classnames[$class->id] = $class->class_name;
+	$classnames[$class->id] = $class->class_name;
 }?>
 
 @include('layout.formopen',array('formheading'=>'Add Sections','action'=>'sections','fnid'=>'submit_sections'))
@@ -45,28 +45,28 @@ foreach ($classes as $class) {
                 <select name="search_class" id="search_class" class="form-control form-filter">
                 <option value="" selected="selected">Select</option>
 <?php foreach ($classes as $class) {
-    $selected = "";
-    if ($search_class == $class->id) {
-        $selected = 'selected="selected"';
-    }?>
-                        <option value="<?php echo $class->id;?>" <?php echo $selected;
-    ?> > <?php echo $class->class_name;?></option>
-    <?php }?>
-                </select>
+	$selected = "";
+	if ($search_class == $class->id) {
+		$selected = 'selected="selected"';
+	}?>
+    <option value="<?php echo $class->id;?>" <?php echo $selected;
+	?> > <?php echo $class->class_name;?></option>
+	<?php }?>
+            	</select>
             </th>
             <th> <input type="text" name="search_section" id="search_section" value="<?php echo $search_section;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_sequences" id="search_sequences" value="<?php echo $search_sequences;?>" class="form-control form-filter"/></th>
             <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
+            	<select name="search_status" id="search_status" class="form-control form-filter">
+            		<option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
+            		<option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
+            		<option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
+            		<option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
+            	</select>
             </th>
             <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="sections"><i class="fa fa-times"></i> Reset</a>
+            	<button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
+            	<a  class="btn btn-sm red btn-outline filter-cancel" href="sections"><i class="fa fa-times"></i> Reset</a>
             </th>
         </tr>
     </tfoot>
@@ -80,12 +80,12 @@ foreach ($classes as $class) {
             <td> {{ $sections->section_name }} </td>
             <td> {{ $sections->sequence }} </td>
             <td>    <?php if ($sections->status == 1) {?>
-    <span class="label label-sm label-info"> Active </span>
-    <?php } else if ($sections->status == 2) {?>
-    <span class="label label-sm label-warning"> Suspended </span>
-    <?php } else if ($sections->status == 0) {?>
-    <span class="label label-sm label-danger"> Deleted </span>
-    <?php }?>
+	<span class="label label-sm label-info"> Active </span>
+	<?php } else if ($sections->status == 2) {?>
+	<span class="label label-sm label-warning"> Suspended </span>
+	<?php } else if ($sections->status == 0) {?>
+	<span class="label label-sm label-danger"> Deleted </span>
+	<?php }?>
 </td>
             <td>
                 <div class="btn-group">
@@ -101,10 +101,10 @@ foreach ($classes as $class) {
                         </li>
                         <li class="divider"> </li>
 <?php if ($sections->status == 1) {?>
-    <li>
-    <?php } else if ($sections->status == 2) {?>
-    <li>
-    <?php }?>
+	<li>
+	<?php } else if ($sections->status == 2) {?>
+	<li>
+	<?php }?>
 </ul>
                 </div>
             </td>
@@ -126,9 +126,7 @@ foreach ($classes as $class) {
 @include('layout.formselect',array('ft'=>'Classes','fin'=>'edit_classes','data'=>$classes,'index'=>'id','value'=>'class_name','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Section','fin'=>'edit_section','fph'=>'Section','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Sequences','fin'=>'edit_sequences','fph'=>'Sequences','fiv'=>''))        @include('layout.modalformclose')
-
-@include('layout.footer')
-
-<script src="{{ URL::asset('js/sections.js') }}" type="text/javascript"></script>
+<?php $js = array("js/sections.js");?>
+@include('layout.footer',array('js' =>$js))
 
 

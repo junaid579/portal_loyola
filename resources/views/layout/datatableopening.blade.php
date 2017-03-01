@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="btn-group pull-right">
-                            <div class="tools"></div>
+                            <div class="tools"> </div>
                         </div>
                     </div>
                 </div>
