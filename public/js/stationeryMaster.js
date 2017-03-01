@@ -2,17 +2,13 @@ $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
         $("#edit_form")[0].reset();
         $("#edit_id").val( $(this).data("id") );
-        $("#edit_f_name").val( $(this).data("f_name") );
-        $("#edit_l_name").val( $(this).data("l_name") );
-        $("#edit_mobile").val( $(this).data("mobile") );
-        $("#edit_email").val( $(this).data("email") );
+        $("#edit_stationary_name").val( $(this).data("stationary_name") );
+        $("#edit_amount").val( $(this).data("amount") );
     });
     $("#sample_1").on("click",".view-data", function(){
-        $("#view_f_name, #view_l_name, #view_mobile, #view_email ").html("");
-        $("#view_f_name").html( $(this).data("f_name") );
-        $("#view_l_name").html( $(this).data("l_name") );
-        $("#view_mobile").html( $(this).data("mobile") );
-        $("#view_email").html( $(this).data("email") );
+        $("#view_stationary_name, #view_amount, #view_mobile, #view_email ").html("");
+        $("#view_stationary_name").html( $(this).data("stationary_name") );
+        $("#view_amount").html( $(this).data("amount") );
     });
     var t = $('#sample_1').DataTable( {
         language:{
@@ -44,8 +40,6 @@ $(document).ready(function() {
             { name: 'col2' },
             { name: 'col3' },
             { name: 'col4' },
-            { name: 'col5' },
-            { name: 'col6' },
             { name: 'col7' }
         ],
         columnDefs:[
@@ -95,8 +89,8 @@ $(document).ready(function() {
 function getExportFileName(){
     d = new Date()
     df = d.getDate()+'_'+d.getMonth()+'_'+d.getFullYear()+'_'+(d.getHours()+1)+'_'+d.getMinutes()
-    return "Staff_"+df;
+    return "Stationery items_"+df;
 }
 function getExportHeading(){
-    return "Staff";
+    return "Stationery items";
 }

@@ -1,36 +1,35 @@
+/**
+ * Created by junaidkhan on 2/25/17.
+ */
 $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
         $("#edit_form")[0].reset();
         $("#edit_id").val( $(this).data("id") );
-        $("#edit_f_name").val( $(this).data("f_name") );
-        $("#edit_l_name").val( $(this).data("l_name") );
-        $("#edit_mobile").val( $(this).data("mobile") );
-        $("#edit_email").val( $(this).data("email") );
+        $("#edit_payment_desc").val( $(this).data("payment_desc") );
+
     });
     $("#sample_1").on("click",".view-data", function(){
-        $("#view_f_name, #view_l_name, #view_mobile, #view_email ").html("");
-        $("#view_f_name").html( $(this).data("f_name") );
-        $("#view_l_name").html( $(this).data("l_name") );
-        $("#view_mobile").html( $(this).data("mobile") );
-        $("#view_email").html( $(this).data("email") );
+        $("#view_payment_desc").html("");
+        $("#view_payment_desc").html( $(this).data("payment_desc") );
+
     });
     var t = $('#sample_1').DataTable( {
         language:{
             aria:{
                 sortAscending:": activate to sort column ascending",
                 sortDescending:": activate to sort column descending"},
-            emptyTable:"No data available in table",
-            info:"Showing _START_ to _END_ of _TOTAL_ records",
-            infoEmpty:"No records found",
-            infoFiltered:"(filtered1 from _MAX_ total records)",
-            lengthMenu:"Show _MENU_",
-            search:"Search:",
-            zeroRecords:"No matching records found",
-            paginate:{
-                previous:"Prev",
-                next:"Next",
-                last:"Last",
-                first:"First"
+                emptyTable:"No data available in table",
+                info:"Showing _START_ to _END_ of _TOTAL_ records",
+                infoEmpty:"No records found",
+                infoFiltered:"(filtered1 from _MAX_ total records)",
+                lengthMenu:"Show _MENU_",
+                search:"Search:",
+                zeroRecords:"No matching records found",
+                paginate:{
+                    previous:"Prev",
+                    next:"Next",
+                    last:"Last",
+                    first:"First"
             }
         },
         bStateSave:!0,
@@ -43,10 +42,7 @@ $(document).ready(function() {
             { name: 'col1' },
             { name: 'col2' },
             { name: 'col3' },
-            { name: 'col4' },
-            { name: 'col5' },
-            { name: 'col6' },
-            { name: 'col7' }
+            { name: 'col4' }
         ],
         columnDefs:[
             {
@@ -95,8 +91,8 @@ $(document).ready(function() {
 function getExportFileName(){
     d = new Date()
     df = d.getDate()+'_'+d.getMonth()+'_'+d.getFullYear()+'_'+(d.getHours()+1)+'_'+d.getMinutes()
-    return "Staff_"+df;
+    return "PaymentTypes_"+df;
 }
 function getExportHeading(){
-    return "Staff";
+    return "PaymentTypes";
 }

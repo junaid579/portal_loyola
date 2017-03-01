@@ -2,17 +2,13 @@ $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
         $("#edit_form")[0].reset();
         $("#edit_id").val( $(this).data("id") );
-        $("#edit_f_name").val( $(this).data("f_name") );
-        $("#edit_l_name").val( $(this).data("l_name") );
-        $("#edit_mobile").val( $(this).data("mobile") );
-        $("#edit_email").val( $(this).data("email") );
+        $("#edit_fine_name").val( $(this).data("fine_name") );
+        $("#edit_heading_on_bill").val( $(this).data("heading_on_bill") );
     });
     $("#sample_1").on("click",".view-data", function(){
-        $("#view_f_name, #view_l_name, #view_mobile, #view_email ").html("");
-        $("#view_f_name").html( $(this).data("f_name") );
-        $("#view_l_name").html( $(this).data("l_name") );
-        $("#view_mobile").html( $(this).data("mobile") );
-        $("#view_email").html( $(this).data("email") );
+        $("#view_fine_name, #view_heading_on_bill").html("");
+        $("#view_fine_name").html( $(this).data("fine_name") );
+        $("#view_heading_on_bill").html( $(this).data("heading_on_bill") );
     });
     var t = $('#sample_1').DataTable( {
         language:{
@@ -44,9 +40,7 @@ $(document).ready(function() {
             { name: 'col2' },
             { name: 'col3' },
             { name: 'col4' },
-            { name: 'col5' },
-            { name: 'col6' },
-            { name: 'col7' }
+            { name: 'col5' }
         ],
         columnDefs:[
             {
@@ -95,8 +89,8 @@ $(document).ready(function() {
 function getExportFileName(){
     d = new Date()
     df = d.getDate()+'_'+d.getMonth()+'_'+d.getFullYear()+'_'+(d.getHours()+1)+'_'+d.getMinutes()
-    return "Staff_"+df;
+    return "fine Types_"+df;
 }
 function getExportHeading(){
-    return "Staff";
+    return "fine Types";
 }
