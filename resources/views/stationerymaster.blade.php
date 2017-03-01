@@ -14,7 +14,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 
 @include('layout.formopen',array('formheading'=>'Add Stationery Master','action'=>'stationerymaster','fnid'=>'submit_stationeryMaster'))
-@include('layout.forminputtext',array('ft'=>'Sationery Name','fin'=>'stationary_name','fph'=>'Sationery Name','fiv'=>''))
+@include('layout.forminputtext',array('ft'=>'Stationery Name','fin'=>'stationery_name','fph'=>'Stationery Name','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Amount','fin'=>'amount','fph'=>'Amount','fiv'=>''))
 
 @include('layout.formclose')
@@ -28,7 +28,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
         <thead>
         <tr>
             <th> SNO.</th>
-            <th> Sationery Name </th>
+            <th> Stationery Name </th>
             <th> Amount </th>
             <th> Status </th>
             <th> Actions </th>
@@ -37,7 +37,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
         <tfoot>
         <tr>
             <th> - </th>
-            <th> <input type="text" name="search_stationary_name" id="search_stationary_name" value="<?php echo $search_stationary_name;?>" class="form-control form-filter" /></th>
+            <th> <input type="text" name="search_stationery_name" id="search_stationery_name" value="<?php echo $search_stationery_name;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_amount" id="search_amount" value="<?php echo $search_amount;?>" class="form-control form-filter" /></th>
             <th>
                 <select name="search_status" id="search_status" class="form-control form-filter">
@@ -59,7 +59,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
         ?>
         <tr class="<?php echo $odd_even;?>">
             <td class="SNO"> </td>
-            <td> {{ $stationeryMaster->stationary_name }} </td>
+            <td> {{ $stationeryMaster->stationery_name }} </td>
             <td> {{ $stationeryMaster->amount }} </td>
             <td>    <?php if ($stationeryMaster->status == 1) {?>
                     <span class="label label-sm label-info"> Active </span>
@@ -76,10 +76,10 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                     </button>
                     <ul class="dropdown-menu pull-left" role="menu">
                         <li>
-                            <a data-toggle="modal" href="#view-data-model" data-id="{{ $stationeryMaster->id }}" data-stationary_name="{{ $stationeryMaster->stationary_name }}" data-amount="{{ $stationeryMaster->amount }}"   class="view-data"><i class="icon-docs"></i> View </a>
+                            <a data-toggle="modal" href="#view-data-model" data-id="{{ $stationeryMaster->id }}" data-stationery_name="{{ $stationeryMaster->stationery_name }}" data-amount="{{ $stationeryMaster->amount }}"   class="view-data"><i class="icon-docs"></i> View </a>
                         </li>
                         <li>
-                            <a data-toggle="modal" href="#responsive" data-id="{{ $stationeryMaster->id }}" data-stationary_name="{{ $stationeryMaster->stationary_name }}" data-amount="{{ $stationeryMaster->amount }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
+                            <a data-toggle="modal" href="#responsive" data-id="{{ $stationeryMaster->id }}" data-stationery_name="{{ $stationeryMaster->stationery_name }}" data-amount="{{ $stationeryMaster->amount }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
                         </li>
                         <li class="divider"> </li>
                         <?php if ($stationeryMaster->status == 1) {?>
@@ -99,13 +99,13 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 
 @include('layout.modalformopen',array('mid'=>'view-data-model','formheading'=>'View Stationery Master','action'=>'','fnid'=>''))
-@include('layout.forminputvalue',array('ft'=>'Sationery Name','fin'=>'view_stationary_name'))
+@include('layout.forminputvalue',array('ft'=>'Stationery Name','fin'=>'view_stationery_name'))
 @include('layout.forminputvalue',array('ft'=>'Amount','fin'=>'view_amount'))
 @include('layout.modalviewformclose')
 
 @include('layout.modalformopen',array('mid'=>'responsive','formheading'=>'Edit Stationery Master member','action'=>'stationerymaster','fnid'=>'edit_form'))
 
-@include('layout.forminputtext',array('ft'=>'Sationery Name','fin'=>'edit_stationary_name','fph'=>'Sationery Name','fiv'=>''))
+@include('layout.forminputtext',array('ft'=>'Stationery Name','fin'=>'edit_stationery_name','fph'=>'Stationery Name','fiv'=>''))
 @include('layout.forminputtext',array('ft'=>'Amount','fin'=>'edit_amount','fph'=>'Amount','fiv'=>''))
 
 @include('layout.modalformclose')

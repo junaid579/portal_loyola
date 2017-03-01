@@ -2,12 +2,12 @@ $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
         $("#edit_form")[0].reset();
         $("#edit_id").val( $(this).data("id") );
-        $("#edit_stationary_name").val( $(this).data("stationary_name") );
+        $("#edit_stationery_name").val( $(this).data("stationery_name") );
         $("#edit_amount").val( $(this).data("amount") );
     });
     $("#sample_1").on("click",".view-data", function(){
-        $("#view_stationary_name, #view_amount, #view_mobile, #view_email ").html("");
-        $("#view_stationary_name").html( $(this).data("stationary_name") );
+        $("#view_stationery_name, #view_amount, #view_mobile, #view_email ").html("");
+        $("#view_stationery_name").html( $(this).data("stationery_name") );
         $("#view_amount").html( $(this).data("amount") );
     });
     var t = $('#sample_1').DataTable( {
