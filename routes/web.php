@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,65 +20,46 @@ Route::post('/classes', 'classesController@findAction');
 Route::put('/classes', 'classesController@update');
 Route::get('/classes/{id}/{status}', 'classesController@statusupdate');
 
-
 Route::get('/sections', 'sectionsController@index');
 Route::post('/sections', 'sectionsController@findAction');
 Route::put('/sections', 'sectionsController@update');
 Route::get('/sections/{id}/{status}', 'sectionsController@statusupdate');
-
-
-
-
 
 Route::get('/subjects', 'subjectsController@index');
 Route::post('/subjects', 'subjectsController@findAction');
 Route::put('/subjects', 'subjectsController@update');
 Route::get('/subjects/{id}/{status}', 'subjectsController@statusupdate');
 
-
 Route::get('/occupation', 'occupationController@index');
 Route::post('/occupation', 'occupationController@findAction');
 Route::put('/occupation', 'occupationController@update');
 Route::get('/occupation/{id}/{status}', 'occupationController@statusupdate');
-
 
 Route::get('/feetypes', 'feeTypesController@index');
 Route::post('/feetypes', 'feeTypesController@findAction');
 Route::put('/feetypes', 'feeTypesController@update');
 Route::get('/feetypes/{id}/{status}', 'feeTypesController@statusupdate');
 
-
-
 Route::get('/stationerygroups', 'stationeryGroupsController@index');
 Route::post('/stationerygroups', 'stationeryGroupsController@findAction');
 Route::put('/stationerygroups', 'stationeryGroupsController@update');
 Route::get('/stationerygroups/{id}/{status}', 'stationeryGroupsController@statusupdate');
-
-
 
 Route::get('/finetypes', 'fineTypesController@index');
 Route::post('/finetypes', 'fineTypesController@findAction');
 Route::put('/finetypes', 'fineTypesController@update');
 Route::get('/finetypes/{id}/{status}', 'fineTypesController@statusupdate');
 
-
-
-
 Route::get('/stationeryinventorymaster', 'stationeryinventorymastercontroller@index');
 Route::post('/stationeryinventorymaster', 'stationeryinventorymastercontroller@findAction');
 Route::put('/stationeryinventorymaster', 'stationeryinventorymastercontroller@update');
-Route::get('/stationeryinventorymaster/{id}/{status}', 'stationeryinventorymastercontroller@statusupdate');
-
-
-
-
+Route::get('/stationeryinventorymaster/{id}/{status}', 
+				'stationeryinventorymastercontroller@statusupdate');
 
 Route::get('/staff', 'staffController@index')->name('staffer');
 Route::post('/staff', 'staffController@findAction');
 Route::put('/staff', 'staffController@update');
 Route::get('/staff/{id}/{status}', 'staffController@statusupdate');
-
-
 
 Route::get('/caste', 'casteController@index');
 Route::post('/caste', 'casteController@findAction');
@@ -91,42 +71,35 @@ Route::post('/paymenttypesmaster', 'paymentTypesMasterController@findAction');
 Route::put('/paymenttypesmaster', 'paymentTypesMasterController@update');
 Route::get('/paymenttypesmaster/{id}/{status}', 'paymentTypesMasterController@statusupdate');
 
-
 Route::get('/consessiontypemaster', 'consessionTypeMasterController@index');
 Route::post('/consessiontypemaster', 'consessionTypeMasterController@findAction');
 Route::put('/consessiontypemaster', 'consessionTypeMasterController@update');
 Route::get('/consessiontypemaster/{id}/{status}', 'consessionTypeMasterController@statusupdate');
-
-
-
 
 Route::get('/stationerygroupmaster', 'stationeryGroupMasterController@index');
 Route::post('/stationerygroupmaster', 'stationeryGroupMasterController@findAction');
 Route::put('/stationerygroupmaster', 'stationeryGroupMasterController@update');
 Route::get('/stationerygroupmaster/{id}/{status}', 'stationeryGroupMasterController@statusupdate');
 
-
-
-
 Route::get('/stationerymaster', 'stationeryMasterController@index');
 Route::post('/stationerymaster', 'stationeryMasterController@findAction');
 Route::put('/stationerymaster', 'stationeryMasterController@update');
 Route::get('/stationerymaster/{id}/{status}', 'stationeryMasterController@statusupdate');
 
-
-
-
 Route::get('/transportPickup', 'transportPickupController@index');
-Route::post('/transportPickup', 'transportPickupController@insert');
+Route::post('/transportPickup', 'transportPickupController@findAction');
 Route::put('/transportPickup', 'transportPickupController@update');
 Route::get('/transportPickup/{id}/{status}', 'transportPickupController@statusupdate');
 
+Route::get('/testtype', 'testtypeController@index');
+Route::post('/testtype', 'testtypeController@findAction');
+Route::put('/testtype', 'testtypeController@update');
+Route::get('/testtype/{id}/{status}', 'testtypeController@statusupdate');
 
 /* Route::post('login', function () {
     echo $_POST['username'];
 }); */
 Route::get('/dashboard', 'dashboardController@dashboard');
-
 
 Route::resource('/test' ,'testController@index');
 Route::post('/test' ,'testController@findAction');
