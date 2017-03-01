@@ -125,7 +125,7 @@ Route::get('/transportPickup/{id}/{status}', 'transportPickupController@statusup
 /* Route::post('login', function () {
     echo $_POST['username'];
 }); */
-//Route::get('/dashboard', 'dashboardController@dashboard');
+Route::get('/dashboard', 'dashboardController@dashboard');
 
 
 Route::resource('/test' ,'testController@index');
