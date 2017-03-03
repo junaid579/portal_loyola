@@ -38,17 +38,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> - </th>
             <th> <input type="text" name="search_caste_name" id="search_caste_name" value="<?php echo $search_caste_name;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_caste_code" id="search_caste_code" value="<?php echo $search_caste_code;?>" class="form-control form-filter" /></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="caste"><i class="fa fa-times"></i> Reset</a>
+            
+                 {{-- For search buttons  --}} 
+           @include('layout.search')
             </th>
         </tr>
         </tfoot>
@@ -80,13 +72,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $castes->id }}" data-caste_name="{{ $castes->caste_name }}" data-caste_code="{{ $castes->caste_code }}" " class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            <?php if ($castes->status == 1) {?>
-                            <li>
-                            <?php } else if ($castes->status == 2) {?>
-                            <li>
-                            <?php }?>
-                        </ul>
+                             {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$castes,'blade_name'=>'caste'))
+                           
                     </div>
                 </td>
             </tr>

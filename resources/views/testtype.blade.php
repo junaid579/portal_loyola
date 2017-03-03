@@ -29,19 +29,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
         <tr>
             <th> - </th>
             <th> <input type="text" name="search_test_type" id="search_test_type" value="<?php echo $search_test_type;?>" class="form-control form-filter" /></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search">
-                    <i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="testtype"><i class="fa fa-times"></i> Reset</a>
-            </th>
+             {{-- For search buttons  --}} 
+           @include('layout.search')
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
@@ -71,13 +60,10 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $testtype->id }}" data-test_type="{{ $testtype->test_type }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            <?php if ($testtype->status == 1) {?>
-                            <li>
-                            <?php } else if ($testtype->status == 2) {?>
-                            <li>
-                            <?php }?>
-                        </ul>
+                            {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$testtypes,'blade_name'=>'testtype'))
+                            
+                       
                     </div>
                 </td>
             </tr>

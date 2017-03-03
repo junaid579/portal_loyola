@@ -56,18 +56,9 @@ foreach ($classes as $class) {
             </th>
             <th> <input type="text" name="search_subject" id="search_subject" value="<?php echo $search_subject;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_sequences" id="search_sequences" value="<?php echo $search_sequences;?>" class="form-control form-filter"/></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="subjects"><i class="fa fa-times"></i> Reset</a>
-            </th>
+            
+            {{-- For search buttons  --}} 
+           @include('layout.search')
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
@@ -99,13 +90,8 @@ foreach ($classes as $class) {
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $subjects->id }}" data-name="{{ $subjects->subject_name }}" data-class="{{ $subjects->class_id }}" data-sequence="{{ $subjects->sequence }}" class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            <?php if ($subjects->status == 1) {?>
-                            <li>
-                            <?php } else if ($subjects->status == 2) {?>
-                            <li>
-                            <?php }?>
-                        </ul>
+                           {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$subjects,'blade_name'=>'subjects'))
                     </div>
                 </td>
             </tr>

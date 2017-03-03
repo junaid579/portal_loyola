@@ -45,18 +45,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_l_name" id="search_l_name" value="<?php echo $search_l_name;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_mobile" id="search_mobile" value="<?php echo $search_mobile;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_email" id="search_email" value="<?php echo $search_email;?>" class="form-control form-filter" /></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="staff"><i class="fa fa-times"></i> Reset</a>
-            </th>
+            
+            {{-- For search buttons  --}} 
+           @include('layout.search')
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
@@ -89,13 +80,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $staff->id }}" data-f_name="{{ $staff->f_name }}" data-l_name="{{ $staff->l_name }}" data-mobile="{{ $staff->mobile }}" data-email="{{ $staff->email }}" class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            <?php if ($staff->status == 1) {?>
-                            <li>
-                            <?php } else if ($staff->status == 2) {?>
-                            <li>
-                            <?php }?>
-                        </ul>
+                            {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$staff,'blade_name'=>'staff'))
                     </div>
                 </td>
             </tr>

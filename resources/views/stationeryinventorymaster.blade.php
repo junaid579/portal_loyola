@@ -35,19 +35,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
         <tr>
             <th> - </th>
             <th> <input type="text" name="search_inventory_desc" id="search_inventory_desc" value="<?php echo $search_inventory_desc;?>" class="form-control form-filter" /></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search">
-                    <i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="stationeryinventorymaster"><i class="fa fa-times"></i> Reset</a>
-            </th>
+            
+            {{-- For search buttons  --}} 
+           @include('layout.search')
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
@@ -76,14 +66,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                         </li>
                         <li>
                             <a data-toggle="modal" href="#responsive" data-id="{{ $stationeryinventorymaster->id }}" data-inventory_desc="{{ $stationeryinventorymaster->inventory_desc }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
-                        </li>
-                        <li class="divider"> </li>
-                        <?php if ($stationeryinventorymaster->status == 1) {?>
-                        <li>
-                            <?php } else if ($stationeryinventorymaster->status == 2) {?>
-                        <li>
-                            <?php }?>
-                    </ul>
+                        </li>{{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$stationeryinventorymaster,'blade_name'=>'stationeryinventorymaster'))
                 </div>
             </td>
         </tr>

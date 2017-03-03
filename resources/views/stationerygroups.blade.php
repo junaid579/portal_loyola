@@ -76,18 +76,9 @@ foreach ($stationeryItems as $stationeryItem) {
                 </select>
             </th>
             <th> <input type="text" name="search_quantity" id="search_quantity" value="<?php echo $search_quantity;?>" class="form-control form-filter"/></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="stationerygroups"><i class="fa fa-times"></i> Reset</a>
-            </th>
+            
+            {{-- For search buttons  --}} 
+           @include('layout.search')
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
@@ -120,13 +111,8 @@ foreach ($stationeryItems as $stationeryItem) {
                         <li>
                             <a data-toggle="modal" href="#responsive" data-id="{{ $stationeryGroups->id }}" data-stationeryItem="{{  $stationeryGroups->stationery_id }}" data-stationeryGroupMaster="{{ $stationeryGroups->group_id }}" data-quantity="{{ $stationeryGroups->quantity }}" class="edit-data"><i class="icon-tag"></i> Edit </a>
                         </li>
-                        <li class="divider"> </li>
-                        <?php if ($stationeryGroups->status == 1) {?>
-                        <li>
-                            <?php } else if ($stationeryGroups->status == 2) {?>
-                        <li>
-                            <?php }?>
-                    </ul>
+                        {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$stationeryGroups,'blade_name'=>'stationerygroups'))
                 </div>
             </td>
         </tr>

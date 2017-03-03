@@ -96,12 +96,17 @@ Route::post('/testtype', 'testtypeController@findAction');
 Route::put('/testtype', 'testtypeController@update');
 Route::get('/testtype/{id}/{status}', 'testtypeController@statusupdate');
 
+Route::get('/testmaster', 'testmasterController@index');
+Route::post('/testmaster', 'testmasterController@findAction');
+Route::put('/testmaster', 'testmasterController@update');
+Route::get('/testmaster/{id}/{status}', 'testmasterController@statusupdate');
+
 /* Route::post('login', function () {
     echo $_POST['username'];
 }); */
 Route::get('/dashboard', 'dashboardController@dashboard');
 
 Route::resource('/test' ,'testController@index');
-Route::post('/test' ,'testController@findAction');
 
 
+Route::get('/test' ,'testController@index');

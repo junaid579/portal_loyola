@@ -38,18 +38,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> - </th>
             <th> <input type="text" name="search_fee_name" id="search_fee_name" value="<?php echo $search_fee_name;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_heading_on_bill" id="search_heading_on_bill" value="<?php echo $search_heading_on_bill;?>" class="form-control form-filter" /></th>
-            <th>
-                <select name="search_status" id="search_status" class="form-control form-filter">
-                    <option value="" <?php if ($search_status == "") {?> selected="selected"  <?php }?>>Select</option>
-                    <option value="1" <?php if ($search_status == "1") {?> selected="selected"  <?php }?> >Active</option>
-                    <option value="2" <?php if ($search_status == "2") {?> selected="selected"  <?php }?> >Suspended</option>
-                    <option value="0" <?php if ($search_status == "0") {?> selected="selected"  <?php }?> >Deleted</option>
-                </select>
-            </th>
-            <th>
-                <button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-                <a  class="btn btn-sm red btn-outline filter-cancel" href="feetypes"><i class="fa fa-times"></i> Reset</a>
-            </th>
+           
+            {{-- For search buttons  --}} 
+           @include('layout.search')
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
@@ -80,13 +71,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $feeTypes->id }}" data-fee_name="{{ $feeTypes->fee_name }}" data-heading_on_bill="{{ $feeTypes->heading_on_bill }}" " class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            <?php if ($feeTypes->status == 1) {?>
-                            <li>
-                            <?php } else if ($feeTypes->status == 2) {?>
-                            <li>
-                            <?php }?>
-                        </ul>
+                            {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$feeTypes,'blade_name'=>'feetypes'))
                     </div>
                 </td>
             </tr>
