@@ -1,6 +1,3 @@
-/**
- * Created by junaidkhan on 2/25/17.
- */
 $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
         $("#edit_form")[0].reset();

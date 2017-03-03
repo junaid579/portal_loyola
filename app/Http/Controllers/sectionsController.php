@@ -13,7 +13,11 @@ class sectionsController extends Controller {
 
 	public function index() {
 		$allsections = sectionsModel::all()->where('status', '!=', 0)->sortByDesc("sequences");
-		$classes     = classesModel::all()->where('status', '=', 1)->sortByDesc("sequences");
+		// $classes     = classesModel::all()->where('status', '=', 1)->sortByDesc("sequences");
+		$classes = classesModel::all()
+            ->select('classes.id as sections_id' )
+            ->join('sections', 'sections.class_id', '=', 'classes.id')
+            ->get();
 		$search_data = array(
 			'search_class'     => "",
 			'search_section'   => "",
@@ -24,6 +28,9 @@ class sectionsController extends Controller {
 				'allsections',
 				'classes'
 			))->with($search_data);
+		$reflector = new ReflectionClass("sections");
+$fn = $reflector->getFileName();
+dd($fn);
 	}
 
 	public function findAction(Request $request) {

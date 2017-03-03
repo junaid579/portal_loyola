@@ -10,9 +10,10 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 @include('layout.breadcrumb',array('data'=>$data))
 
 @include('layout.messages')
-@foreach ($classes as $class)
-    {!! $classnames[$class->id] = $class->class_name !!}
-@endforeach
+<?php $classnames = array();
+foreach ($classes as $class) {
+    $classnames[$class->id] = $class->class_name;
+}?>
 
 @include('layout.formopen',array('formheading'=>'Add Sections','action'=>'sections','fnid'=>'submit_sections'))
 @include('layout.formselect',array('ft'=>'Classes','fin'=>'class_id','data'=>$classes,'index'=>'id','value'=>'class_name','fiv'=>''))

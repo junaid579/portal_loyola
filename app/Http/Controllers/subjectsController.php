@@ -46,7 +46,7 @@ class subjectsController extends Controller {
             $sub->m_by         = Session::get('userid');
 
             if ($sub->save()) {
-                Session::flash('message', 'Section '.$sub->subject_name.' successfully added');
+                Session::flash('message', 'Subject'.$sub->subject_name.' successfully added');
             } else {
                 Session::flash('error_message', 'Something went wrong! Try again!');
             }
