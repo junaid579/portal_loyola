@@ -114,7 +114,7 @@ foreach ($testtypes as $testtype) {
             </th>
             <th> <input type="text" name="search_test_name" id="search_test_name" value="<?php echo $search_section;?>" class="form-control form-filter" /></th>
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'testmaster'])
             
             
         </tr>

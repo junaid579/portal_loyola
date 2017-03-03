@@ -30,7 +30,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> - </th>
             <th> <input type="text" name="search_test_type" id="search_test_type" value="<?php echo $search_test_type;?>" class="form-control form-filter" /></th>
              {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'testtype'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

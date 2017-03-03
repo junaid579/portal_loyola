@@ -78,7 +78,7 @@ foreach ($stationeryItems as $stationeryItem) {
             <th> <input type="text" name="search_quantity" id="search_quantity" value="<?php echo $search_quantity;?>" class="form-control form-filter"/></th>
             
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'stationerygroups'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

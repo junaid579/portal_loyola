@@ -47,7 +47,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_email" id="search_email" value="<?php echo $search_email;?>" class="form-control form-filter" /></th>
             
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'staff'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

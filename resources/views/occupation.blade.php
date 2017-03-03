@@ -37,7 +37,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_occupation_details" id="search_occupation_details" value="<?php echo $search_occupation_details;?>" class="form-control form-filter" /></th>
            
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'occupation'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

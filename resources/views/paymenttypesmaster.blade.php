@@ -37,7 +37,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_payment_desc" id="search_payment_desc" value="<?php echo $search_payment_desc;?>" class="form-control form-filter" /></th>
             
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'paymenttypesmaster'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

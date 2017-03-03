@@ -11,10 +11,10 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 @include('layout.messages')
 
-<?php $classnames = array();
-foreach ($classes as $class) {
-    $classnames[$class->id] = $class->class_name;
-}?>
+@foreach ($classes as $class) 
+           {{ $classnames[$class->id] = $class->class_name }} 
+}
+@endforeach
 
 @include('layout.formopen',array('formheading'=>'Add Subjects','action'=>'subjects','fnid'=>'submit_subjects'))
 @include('layout.formselect',array('ft'=>'Classes','fin'=>'class_id','data'=>$classes,'index'=>'id','value'=>'class_name','fiv'=>''))
@@ -58,7 +58,7 @@ foreach ($classes as $class) {
             <th> <input type="text" name="search_sequences" id="search_sequences" value="<?php echo $search_sequences;?>" class="form-control form-filter"/></th>
             
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'subjects'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

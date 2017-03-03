@@ -37,7 +37,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input Type="text" name="search_group_name" id="search_group_name" value="<?php echo $search_group_name;?>" class="form-control form-filter" /></th>
             
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'stationerygroupmaster'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

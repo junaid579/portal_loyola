@@ -40,7 +40,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_caste_code" id="search_caste_code" value="<?php echo $search_caste_code;?>" class="form-control form-filter" /></th>
             
                  {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'caste'])
             </th>
         </tr>
         </tfoot>

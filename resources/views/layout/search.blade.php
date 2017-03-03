@@ -8,5 +8,5 @@
 </th>
 <th>
 	<button type="submit" name="search_submit" id="search_submit" class="btn btn-sm green btn-outline filter-submit margin-bottom" value="Search"><i class="fa fa-search"></i> Search</button>
-	<a  class="btn btn-sm red btn-outline filter-cancel" href="testmaster"><i class="fa fa-times"></i> Reset</a>
+	<a  class="btn btn-sm red btn-outline filter-cancel" href="{{ $blade_name }}"><i class="fa fa-times"></i> Reset</a>
 </th>

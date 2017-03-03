@@ -40,7 +40,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_heading_on_bill" id="search_heading_on_bill" value="<?php echo $search_heading_on_bill;?>" class="form-control form-filter" /></th>
            
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'feetypes'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

@@ -41,7 +41,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_amount" id="search_amount" value="<?php echo $search_amount;?>" class="form-control form-filter" /></th>
            
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'stationerymaster'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

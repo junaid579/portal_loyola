@@ -56,6 +56,12 @@ Route::put('/stationeryinventorymaster', 'stationeryinventorymastercontroller@up
 Route::get('/stationeryinventorymaster/{id}/{status}', 
 				'stationeryinventorymastercontroller@statusupdate');
 
+Route::get('/stationeryinventory', 'stationeryinventorycontroller@index');
+Route::post('/stationeryinventory', 'stationeryinventorycontroller@findAction');
+Route::put('/stationeryinventory', 'stationeryinventorycontroller@update');
+Route::get('/stationeryinventory/{id}/{status}', 
+				'stationeryinventorycontroller@statusupdate');
+
 Route::get('/staff', 'staffController@index')->name('staffer');
 Route::post('/staff', 'staffController@findAction');
 Route::put('/staff', 'staffController@update');

@@ -10,11 +10,9 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 @include('layout.breadcrumb',array('data'=>$data))
 
 @include('layout.messages')
-
-<?php $classnames = array();
-foreach ($classes as $class) {
-	$classnames[$class->id] = $class->class_name;
-}?>
+@foreach ($classes as $class)
+    {!! $classnames[$class->id] = $class->class_name !!}
+@endforeach
 
 @include('layout.formopen',array('formheading'=>'Add Sections','action'=>'sections','fnid'=>'submit_sections'))
 @include('layout.formselect',array('ft'=>'Classes','fin'=>'class_id','data'=>$classes,'index'=>'id','value'=>'class_name','fiv'=>''))
@@ -44,6 +42,7 @@ foreach ($classes as $class) {
             <th>
                 <select name="search_class" id="search_class" class="form-control form-filter">
                 <option value="" selected="selected">Select</option>
+   
 <?php foreach ($classes as $class) {
 	$selected = "";
 	if ($search_class == $class->id) {
@@ -57,7 +56,7 @@ foreach ($classes as $class) {
             <th> <input type="text" name="search_section" id="search_section" value="<?php echo $search_section;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_sequences" id="search_sequences" value="<?php echo $search_sequences;?>" class="form-control form-filter"/></th>
              {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'sections'])
         </tr>
     </tfoot>
     <tbody><?php $i = 1;?>

@@ -36,7 +36,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> - </th>
             <th> <input Type="text" name="search_consession_desc" id="search_consession_desc" value="<?php echo $search_consession_desc;?>" class="form-control form-filter" /></th>
              {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'consessiontypemaster'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

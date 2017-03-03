@@ -37,7 +37,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> <input type="text" name="search_inventory_desc" id="search_inventory_desc" value="<?php echo $search_inventory_desc;?>" class="form-control form-filter" /></th>
             
             {{-- For search buttons  --}} 
-           @include('layout.search')
+           @include('layout.search',['blade_name'=>'stationeryinventorymaster'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>

@@ -39,8 +39,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
             <th> - </th>
             <th> <input type="text" name="search_class" id="search_class" value="<?php echo $search_class;?>" class="form-control form-filter" /></th>
             <th> <input type="text" name="search_sequences" id="search_sequences" value="<?php echo $search_sequences;?>" class="form-control form-filter"/></th>
-             {{-- For search buttons  --}} 
-           @include('layout.search')
+            {{-- For search buttons  --}} 
+           @include('layout.search',['blade_name'=>'classes'])
         </tr>
         </tfoot>
         <tbody><?php $i = 1;?>
