@@ -107,9 +107,24 @@ Route::post('/testmaster', 'testmasterController@findAction');
 Route::put('/testmaster', 'testmasterController@update');
 Route::get('/testmaster/{id}/{status}', 'testmasterController@statusupdate');
 
+
+Route::get('/pickpoint', 'pickpointController@index');
+Route::post('/pickpoint', 'pickpointController@findAction');
+Route::put('/pickpoint', 'pickpointController@update');
+Route::get('/pickpoint/{id}/{status}', 'pickpointController@statusupdate');
+
 /* Route::post('login', function () {
     echo $_POST['username'];
 }); */
+// // Dynamic dropdown dependent
+// Route::get('api/dependent-dropdown','APIController@index');
+// Route::get('api/get-state-list','APIController@getStateList');
+// Route::get('api/get-city-list','APIController@getCityList');
+
+
+
+
+
 Route::get('/dashboard', 'dashboardController@dashboard');
 
 Route::resource('/test' ,'testController@index');
