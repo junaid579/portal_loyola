@@ -106,7 +106,7 @@ class staffController extends Controller {
         $stf->m_by         = Session::get('userid');
 
         if ($stf->save()) {
-            Session::flash('message', 'satff Member '.$stf->f_name.' successfully Updated');
+            Session::flash('message', 'Staff Member '.$stf->f_name.' successfully Updated');
         } else {
             Session::flash('error_message', 'Something went wrong! Try again!');
         }
@@ -122,7 +122,7 @@ class staffController extends Controller {
         if ($status == 1) {$status_t = "Activated";} else if ($status == 2) {$status_t = "Suspended";} else if ($status == 0) {$status_t = "Deleted";}
 
         if ($stf->save()) {
-            Session::flash('message', 'satff Member '.$stf->f_name.' suscessfully '.$status_t);
+            Session::flash('message', 'Staff Member '.$stf->f_name.' suscessfully '.$status_t);
         } else {
             Session::flash('error_message', 'Something went wrong! Try again!');
         }
