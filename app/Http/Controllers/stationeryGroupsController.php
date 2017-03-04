@@ -71,12 +71,12 @@ class stationeryGroupsController extends Controller {
                 'search_status'    => $s_status,
             );
 
-            $query = stationeryGroupsModel::select('*');
+            $query = stationeryGroupsModel::select('*');   'like',"%".$s_status."%"
 
-            if ($s_stationeryGroupMaster != "") {$query     = $query->where('group_id', '=', $s_stationeryGroupMaster);}
-            if ($s_stationeryItem != "") {$query   = $query->where('stationery_id', '=', $s_stationeryItem);}
-            if ($s_quantity != "") {$query = $query->where('quantity', '=', $s_quantity);}
-            if ($s_status != "") {$query    = $query->where('status', '=', $s_status);}
+            if ($s_stationeryGroupMaster != "") {$query     = $query->where('group_id', 'like',"%".$s_stationeryGroupMaster."%");}
+            if ($s_stationeryItem != "") {$query   = $query->where('stationery_id', 'like',"%".$s_stationeryItem."%");}
+            if ($s_quantity != "") {$query = $query->where('quantity', 'like',"%".$s_quantity."%");}
+            if ($s_status != "") {$query    = $query->where('status', 'like',"%".$s_status."%");}
 
             $allstationeryGroups = $query->get();
 

@@ -8,8 +8,6 @@ use App\Http\Models\subjectsModel;
 use App\Http\Models\testtypeModel;
 use App\Http\Models\testmasterModel;
 
-
-
 use DB;
 use Illuminate\Http\Request;
 use Session;
@@ -18,13 +16,14 @@ class testmasterController extends Controller {
 
 	public function index() {
 		$alltestnames	 = testmasterModel::all()->where('status', '!=', 0);
-		$sections 		 = sectionsModel::all()->where('status', '!=', 0);
 		$classes     	 = classesModel::all()->where('status', '=', 1);
+		//$sections 		 = sectionsModel::all()->where('status', '!=', 0);
+		// using joins for $sections
+		 $sections = sectionsModel::select('*' )
+            ->join('classes', 'classes.id', '=', 'sections.class_id')
+            ->get();
 		$subjects    	 = subjectsModel::all()->where('status', '=', 1);
 		$testtypes       = testtypeModel::all()->where('status', '=', 1);
-		// Joins not working
-		//$classes 		 = classesModel::get()->join('sections','classes.id','=','sections.class_id');
-        
 
 		$search_data = array(
 			'search_class'     => "",
@@ -91,14 +90,14 @@ class testmasterController extends Controller {
 				'search_status'    => $s_status,
 			);
 
-			$query = testmasterModel::select('*');
+			$query = testmasterModel::select('*');  
 
-			if ($s_class != "") {$query     = $query->where('class_id', '=', $s_class);}
-			if ($s_section != "") {$query   = $query->where('section_name', '=', $s_section);}
-			if ($s_subject != "") {$query   = $query->where('subject_name', '=', $s_subject);}
-			if ($s_testtype != "") {$query   = $query->where('test_type', '=', $s_testtype);}
-			if ($s_test_name != "") {$query = $query->where('test_name', '=', $s_test_name);}
-			if ($s_status != "") {$query    = $query->where('status', '=', $s_status);}
+			if ($s_class != "") {$query     = $query->where('class_id', 'like',"%".$s_class."%");}
+			if ($s_section != "") {$query   = $query->where('section_name', 'like',"%".$s_section."%");}
+			if ($s_subject != "") {$query   = $query->where('subject_name', 'like',"%".$s_subject."%");}
+			if ($s_testtype != "") {$query   = $query->where('test_type', 'like',"%".$s_testtype."%");}
+			if ($s_test_name != "") {$query = $query->where('test_name',  'like',"%".$s_test_name."%");}
+			if ($s_status != "") {$query    = $query->where('status', 'like',"%".$s_status."%");}
 
 			$alltestnames = $query->get();
 
