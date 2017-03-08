@@ -24,7 +24,7 @@ var FormWizard = function () {
                 }
             });
 
-            var form = $('#submit_form');
+            /*var form = $('#submit_form');
             var error = $('.alert-danger', form);
             var success = $('.alert-success', form);
 
@@ -145,7 +145,7 @@ var FormWizard = function () {
                     error.hide();
                     form[0].submit();
                     //add here some ajax code to submit your form or just call form.submit() if you want to submit the form without ajax
-                }
+                }*/
 
             });
 

@@ -79,46 +79,16 @@ class admissionController extends Controller {
 	public function findAction(Request $request) {
 		if ($request->has('insert_submit')) {
 
-			$this->validate($request, [
-					'first_name'   => 'required',
-					'last_name'   => 'required',
-					'genderi'   => 'required',
-					'caste_id'   => 'required',
-					'religion_id'   => 'required',
-					'mother_tongue_id'   => 'required',
-					'nationality_id'   => 'required',
-					'date_of_birth'   => 'required',
-					'birth_place'   => 'required',
-					'aadhar_no'   => 'required',
-
-					'father_income'	=> 'required',
-					'father_name'   => 'required',
-					'mother_name'   => 'required',
-					'occupation_id'   => 'required',
-					'guardian_name'   => 'required',
-
-					'mobile_1'	=> 'required',
-					'mobile_2'	=> 'required',
-					'email_1'	=> 'required',
-					'email_2'	=> 'required',
-					'present_address'   => 'required',
-					'permanent_address'   => 'required',
-
-					'class_id'  => 'required',
-					'section_id'   => 'required',
-					'previous_school'   => 'required',
-					'roll_no'	   => 'required'
-					
-				]);
+			
 
 			$app                  = new admissionModel;
 			$app->first_name              = $request->first_name;
 			$app->last_name              = $request->last_name;
 			$app->gender                  = $request->genderi;
-			$app->caste_id              = $request->caste_id;
-			$app->religion_id              = $request->religion_id;
-			$app->mother_tongue_id          = $request->mother_tongue_id;
-			$app->nationality_id          = $request->nationality_id;
+			$app->caste              = $request->caste;
+			$app->religion              = $request->religion ;
+			$app->mother_tongue         = $request->mother_tongue;
+			$app->nationality         = $request->nationality;
 			$app->date_of_birth          = $request->date_of_birth;
 			$app->birth_place              = $request->birth_place;
 			$app->aadhar_no              = $request->aadhar_no;
@@ -126,7 +96,7 @@ class admissionController extends Controller {
 			$app->father_income            = $request->father_income;
 			$app->father_name              = $request->father_name;
 			$app->mother_name              = $request->mother_name;
-			$app->occupation_id          = $request->occupation_id;
+			$app->occupation          = $request->occupation;
 			$app->guardian_name          = $request->guardian_name;
 
 			$app->mobile_1                = $request->mobile_1;
@@ -136,8 +106,8 @@ class admissionController extends Controller {
 			$app->present_address          = $request->present_address;
 			$app->permanent_address      = $request->permanent_address;
 
-			$app->class_id              = $request->class_id;
-			$app->section_id              = $request->section_id;
+			$app->class_name              = $request->class_name;
+			$app->section_name              = $request->section_name;
 			$app->previous_school          = $request->previous_school;
 			$app->roll_no                = $request->roll_no;
 
@@ -297,7 +267,7 @@ class admissionController extends Controller {
 		$app->first_name       = $request->edit_first_name   ;
 		$app->last_name        = $request->edit_last_name   ;
 		$app->gender           = $request->edit_gender   ;
-		$app->caste_id         = $request->edit_caste_id   ;
+		$app->caste         = $request->edit_caste_id   ;
 		$app->religion_id      = $request->edit_religion_id   ;
 		$app->mother_tongue_id  = $request->edit_mother_tongue_id  ;
 		$app->nationality_id   = $request->edit_nationality_id  ; 

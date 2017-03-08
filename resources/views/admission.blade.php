@@ -54,12 +54,13 @@ foreach ($nationalities as $nationality) {
             <div class="caption">
                 <i class=" icon-layers font-red"></i>
                 <span class="caption-subject font-red bold uppercase"> Application Form -
-                    <span class="step-title"> Step 1 of 3 </span>
+                    <span class="step-title"> Step 1 of 4 </span>
                 </span>
             </div>
         </div>
         <div class="portlet-body form">
             <form class="form-horizontal" action="admission" id="submit_form" method="POST">
+             {{ csrf_field() }}
                 <div class="form-wizard">
                     <div class="form-body">
                         <ul class="nav nav-pills nav-justified steps">
@@ -105,7 +106,9 @@ foreach ($nationalities as $nationality) {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">First Name</label>
+                                            <label class="control-label col-md-3">First Name
+                                                <span class="required">*</span>
+                                            </label>
                                             <div class="col-md-9 input-medium input-medium">
                                                 <input type="text" class="form-control" name = "first_name" id="first_name" placeholder="First Name">
                                             </div>
@@ -129,8 +132,8 @@ foreach ($nationalities as $nationality) {
                                             <label class="control-label col-md-3">Gender</label>
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" name = "genderi" id="genderi"  >
-                                                    <option value="">Male</option>
-                                                    <option value="">Female</option>
+                                                    <option value="1">Male</option>
+                                                    <option value="0">Female</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -162,7 +165,7 @@ foreach ($nationalities as $nationality) {
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" data-placeholder="Choose a Caste" tabindex="1" name="religion" id = "religion">
                                                 @foreach($religions as $religion)
-                                                 <option value="id"> {{ $religion->religion_name }} </option>
+                                                 <option value="{{ $religion->id }}"> {{ $religion->religion_name }}</option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -175,7 +178,7 @@ foreach ($nationalities as $nationality) {
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" data-placeholder="Choose a Caste" tabindex="1" name="caste" id="caste">
                                                 @foreach($castes as $val)
-                                                 <option value="id"> {{ $val->caste_name }} </option>
+                                                 <option value="{{ $val->id }}"> {{ $val->caste_name }} </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -192,7 +195,7 @@ foreach ($nationalities as $nationality) {
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" data-placeholder="Choose a Caste" tabindex="1" name="nationality" id="nationality">
                                                 @foreach($nationalities as $val)
-                                                 <option value="id"> {{ $val->nationality }} </option>
+                                                 <option value="{{ $val->id }}"> {{ $val->nationality }} </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -226,7 +229,7 @@ foreach ($nationalities as $nationality) {
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" data-placeholder="Choose a Caste" tabindex="1" name="mother_tongue" id="mother_tongue">
                                                 @foreach($mothertongues as $val)
-                                                 <option value="id"> {{ $val->mother_tongue }} </option>
+                                                 <option value="{{ $val->id }}"> {{ $val->mother_tongue }} </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -285,7 +288,7 @@ foreach ($nationalities as $nationality) {
                                             <div class="col-md-9 input-medium input-medium">
                                                 <select class="form-control" name="occupation" id="occupation" data-placeholder="Choose a Caste" tabindex="1">
                                                 @foreach($occupations as $val)
-                                                 <option value="id"> {{ $val->occupation }} </option>
+                                                 <option value="{{ $val->id }}"> {{ $val->occupation_details }} </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -347,7 +350,9 @@ foreach ($nationalities as $nationality) {
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">Permanent Address</label>
+                                            <label class="control-label col-md-3">Permanent Address
+                                                <span class="required">*</span>
+                                            </label>
                                             <div class="col-md-9 input-small">
                                                 <textarea name="permanent_address" id="permanent_address" cols="30" rows="6"></textarea>
                                             </div>
@@ -367,7 +372,7 @@ foreach ($nationalities as $nationality) {
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" name="class_name" id="class_name" data-placeholder="Class" tabindex="1">
                                                 @foreach($classes as $val)
-                                                 <option value="id"> {{ $val->class_name }} </option>
+                                                 <option value="{{ $val->id }}"> {{ $val->class_name }}</option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -378,8 +383,9 @@ foreach ($nationalities as $nationality) {
                                             <label class="control-label col-md-3">Section</label>
                                             <div class="col-md-9 input-medium">
                                                 <select class="form-control" name="section_name" id="section_name" data-placeholder="Section" tabindex="1">
+                                                <option  data-class_id ="" selected="selected"> Select</option>
                                                 @foreach($sections as $val)
-                                                 <option value="id"> {{ $val->section_name }} </option>
+                                                 <option value="{{ $val->id }}" > {{ $val->section_name }} </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -420,9 +426,8 @@ foreach ($nationalities as $nationality) {
                                 <a href="javascript:;" class="btn btn-outline green button-next"> Continue
                                     <i class="fa fa-angle-right"></i>
                                 </a>
-                                <a href="javascript:;" class="btn green button-submit"> Submit
-                                    <i class="fa fa-check"></i>
-                                </a>
+<button type="submit" class="btn green button-submit" name="insert_submit" value="insert">Submit</button>
+
                             </div>
                         </div>
                     </div>
