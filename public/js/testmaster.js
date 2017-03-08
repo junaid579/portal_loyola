@@ -49,9 +49,8 @@ $(document).ready(function() {
 	        { name: 'col4' },
 	        { name: 'col5' },
 	        { name: 'col6' },
-	        { name: 'col7' },
-	        { name: 'col8' }
-    	],
+	        { name: 'col7' }
+	       	],
 		columnDefs:[
 			{
 				orderable:false,

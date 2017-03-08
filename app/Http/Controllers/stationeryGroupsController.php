@@ -71,7 +71,7 @@ class stationeryGroupsController extends Controller {
                 'search_status'    => $s_status,
             );
 
-            $query = stationeryGroupsModel::select('*');   'like',"%".$s_status."%"
+            $query = stationeryGroupsModel::select('*');   
 
             if ($s_stationeryGroupMaster != "") {$query     = $query->where('group_id', 'like',"%".$s_stationeryGroupMaster."%");}
             if ($s_stationeryItem != "") {$query   = $query->where('stationery_id', 'like',"%".$s_stationeryItem."%");}

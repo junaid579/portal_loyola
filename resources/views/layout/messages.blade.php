@@ -10,6 +10,7 @@
             <div class="alert alert-warning display-show">
                 <button class="close" data-close="alert"></button>
                 <span> {{ Session::get('error_message') }} </span>
+                <span class="required"> * </span>
             </div>
         @endif
     </div>

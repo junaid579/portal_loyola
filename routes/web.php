@@ -107,11 +107,25 @@ Route::post('/testmaster', 'testmasterController@findAction');
 Route::put('/testmaster', 'testmasterController@update');
 Route::get('/testmaster/{id}/{status}', 'testmasterController@statusupdate');
 
-
 Route::get('/pickpoint', 'pickpointController@index');
 Route::post('/pickpoint', 'pickpointController@findAction');
 Route::put('/pickpoint', 'pickpointController@update');
 Route::get('/pickpoint/{id}/{status}', 'pickpointController@statusupdate');
+
+Route::get('/adjustmentmaster', 'adjustmentmasterController@index');
+Route::post('/adjustmentmaster', 'adjustmentmasterController@findAction');
+Route::put('/adjustmentmaster', 'adjustmentmasterController@update');
+Route::get('/adjustmentmaster/{id}/{status}', 'adjustmentmasterController@statusupdate');
+
+Route::get('/religion', 'religionController@index');
+Route::post('/religion', 'religionController@findAction');
+Route::put('/religion', 'religionController@update');
+Route::get('/religion/{id}/{status}', 'religionController@statusupdate');
+
+Route::get('/mothertongue', 'mothertongueController@index');
+Route::post('/mothertongue', 'mothertongueController@findAction');
+Route::put('/mothertongue', 'mothertongueController@update');
+Route::get('/mothertongue/{id}/{status}', 'mothertongueController@statusupdate');
 
 /* Route::post('login', function () {
     echo $_POST['username'];
@@ -122,6 +136,19 @@ Route::get('/pickpoint/{id}/{status}', 'pickpointController@statusupdate');
 // Route::get('api/get-city-list','APIController@getCityList');
 
 
+Route::get('/nationality', 'nationalityController@index');
+Route::post('/nationality', 'nationalityController@findAction');
+Route::put('/nationality', 'nationalityController@update');
+Route::get('/nationality/{id}/{status}', 'nationalityController@statusupdate');
+
+Route::get('/admission', 'admissionController@index');
+Route::post('/admission', 'admissionController@findAction');
+Route::put('/admission', 'admissionController@update');
+Route::get('/admission/{id}/{status}', 'admissionController@statusupdate');
+
+// Route::get('admission', function () {
+//     return view("admission");
+// });
 
 
 

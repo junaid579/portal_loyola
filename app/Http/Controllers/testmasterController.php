@@ -15,7 +15,7 @@ use Session;
 class testmasterController extends Controller {
 
 	public function index() {
-		$alltestnames	 = testmasterModel::all()->where('status', '!=', 0);
+		$alltestmaster	 = testmasterModel::all()->where('status', '!=', 0);
 		$classes     	 = classesModel::all()->where('status', '=', 1);
 		//$sections 		 = sectionsModel::all()->where('status', '!=', 0);
 		// using joins for $sections
@@ -30,10 +30,11 @@ class testmasterController extends Controller {
 			'search_section'   => "",
 			'search_subject'   => "",
 			'search_testtype'   => "",
+			'search_test_name'   => "",
 			'search_status'    => "",
 		);
 		return view('testmaster')->with(compact(
-				'alltestnames',
+				'alltestmaster',
 				'classes',
 				'sections',
 				'subjects',
@@ -99,7 +100,7 @@ class testmasterController extends Controller {
 			if ($s_test_name != "") {$query = $query->where('test_name',  'like',"%".$s_test_name."%");}
 			if ($s_status != "") {$query    = $query->where('status', 'like',"%".$s_status."%");}
 
-			$alltestnames = $query->get();
+			$alltestmaster = $query->get();
 
 			$sections 		 = sectionsModel::all()->where('status', '!=', 0)->sortByDesc("sequences");
 			$classes     	 = classesModel::all()->where('status', '=', 1)->sortByDesc("sequences");
@@ -108,7 +109,7 @@ class testmasterController extends Controller {
 
 
 			return view('testmaster')->with(compact(
-					'alltestnames',
+					'alltestmaster',
 					'classes',
 					'sections',
 					'subjects',

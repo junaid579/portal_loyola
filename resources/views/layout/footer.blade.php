@@ -41,6 +41,22 @@
             <script src="<?php echo URL::asset("".$jsurl);?>" type="text/javascript"></script>
         @endforeach
         <!-- END THEME LAYOUT SCRIPTS -->
+        <!-- DATE PICKER SCRIPTS -->
+        <script src="{{ URL::asset('assets/global/plugins/moment.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('ssets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/global/plugins/clockface/js/clockface.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/pages/scripts/components-date-time-pickers.min.js') }}" type="text/javascript"></script>
+        <!-- FORM WIZARD  SCRIPTS -->
+        
+        <script src="{{ URL::asset('assets/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('ssets/global/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/pages/scripts/form-wizard.min.js') }}" type="text/javascript"></script>
+
 
     </body>
 </html>

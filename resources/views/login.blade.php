@@ -67,7 +67,7 @@
             </form>
             <!-- END LOGIN FORM -->
         </div>
-        <div class="copyright"> 2017 © Loyola Hight School.</div>
+        <div class="copyright"> 2017 © Loyola High School.</div>
         
         <script type="text/javascript" src="{{ URL::asset('assets/global/plugins/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('assets/global/plugins/bootstrap/js/bootstrap.min.js') }}"></script>

@@ -47,6 +47,16 @@
                                             <span class="title">Staff</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item start ">
+                                        <a href="religion" class="nav-link ">
+                                            <span class="title">Religion</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start ">
+                                        <a href="mothertongue" class="nav-link ">
+                                            <span class="title">Mother Tongue</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item start ">
@@ -62,7 +72,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item start ">
-                                        <a href="adjustments" class="nav-link ">
+                                        <a href="adjustmentmaster" class="nav-link ">
                                             <span class="titile">Adjustments</span>
                                         </a>
                                     </li>
@@ -91,7 +101,7 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item start ">
-                                        <a href="pickpoints" class="nav-link ">
+                                        <a href="pickpoint" class="nav-link ">
                                             <span class="title">Pickup Points</span>
                                         </a>
                                     </li>
