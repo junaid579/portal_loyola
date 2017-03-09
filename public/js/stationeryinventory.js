@@ -1,15 +1,16 @@
 $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
         $("#edit_form")[0].reset();
+
         $("#edit_id").val( $(this).data("id") );
-        $("#edit_stationeryInventoryMaster").val( $(this).data("stationeryInventoryMaster") );
-        $("#edit_stationeryItem").val( $(this).data("stationeryItem") );
+        $("#edit_stationeryInventoryMaster").val( $(this).data("stationeryinventorymaster") );
+        $("#edit_stationeryItem").val( $(this).data("stationeryitem") );
         $("#edit_count").val( $(this).data("count") );
     });
     $("#sample_1").on("click",".view-data", function(){
         $("#view_stationeryInventoryMaster, #view_stationeryItem, #view_count").html("");
-        $("#view_stationeryInventoryMaster").html( $(this).data("stationeryInventoryMaster") );
-        $("#view_stationeryItem").html( $(this).data("stationeryItem") );
+        $("#view_stationeryInventoryMaster").html( $(this).data("stationeryinventorymaster") );
+        $("#view_stationeryItem").html( $(this).data("stationeryitem") );
         $("#view_count").html( $(this).data("count") );
     });
     var t = $('#sample_1').DataTable( {
