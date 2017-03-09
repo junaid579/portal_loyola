@@ -5,17 +5,21 @@ $(document).ready(function() {
         $("#edit_classes").val( $(this).data("class") );
         $("#edit_sections").val( $(this).data("section") );
         $("#edit_subjects").val( $(this).data("subject") );
-        $("#edit_testtypes").val( $(this).data("testtype") );
-        $("#edit_test_name").val( $(this).data("test_name") );
+        $("#edit_test_name").val( $(this).data("name") );
 
     });
     $("#sample_1").on("click",".view-data", function(){
-        $("#view_classes, #view_sections, #view_subjects , #view_testtypes , #view_test_name").html("");
+    	alert($(this).data("class"));
+    	alert($(this).data("section"));
+    	alert($(this).data("subject"));
+    	alert($(this).data("name"));
+    	
+    	
+        $("#view_classes, #view_sections, #view_subjects , #view_test_name").html("");
         $("#view_classes").html( $(this).data("class") );
         $("#view_sections").val( $(this).data("section") );
         $("#view_subjects").val( $(this).data("subject") );
-        $("#view_testtypes").val( $(this).data("testtype") );
-        $("#view_test_name").val( $(this).data("test_name") );
+        $("#view_test_name").val( $(this).data("name") );
     });
 	var t = $('#sample_1').DataTable( {
         language:{

@@ -3,7 +3,7 @@
     	<span class="required"> * </span>
     </label>
     
-    <div class="col-md-4 input-group">
+    <div class="col-md-3 input-group">
        <input type="text" name="{{$fin}}" id="{{$fin}}" class="form-control" placeholder="{{$fph}}" value="{{$fiv}}" />
     </div>
 </div>

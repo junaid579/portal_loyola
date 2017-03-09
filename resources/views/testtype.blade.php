@@ -61,7 +61,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $testtype->id }}" data-test_type="{{ $testtype->test_type }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
                             {{-- For actions Delete and Suspend buttons function --}}
-                    @include('layout.actions',array('loopobj'=>$testtypes,'blade_name'=>'testtype'))
+                    @include('layout.actions',array('loopobj'=>$testtype,'blade_name'=>'testtype'))
                             
                        
                     </div>

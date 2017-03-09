@@ -112,6 +112,20 @@
       </li>
       <li class="nav-item start ">
         <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-book"></i>
+        <span class="title">Tests Master Data</span>
+        <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+          <li class="nav-item start ">
+            <a href="testtype" class="nav-link ">
+            <span class="title">Test Types </span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item start ">
+        <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-cubes"></i>
         <span class="title">Stationary Master Data</span>
         <span class="arrow"></span>
