@@ -14,6 +14,7 @@ use App\Http\Models\admissionModel;
 use DB;
 use Illuminate\Http\Request;
 use Session;
+// use App\Http\Controllers\Carbon\Carbon;
 
 class admissionController extends Controller {
 
@@ -89,8 +90,14 @@ class admissionController extends Controller {
 			$app->religion              = $request->religion ;
 			$app->mother_tongue         = $request->mother_tongue;
 			$app->nationality         = $request->nationality;
-			$app->date_of_birth          = $request->date_of_birth;
-			$app->birth_place              = $request->birth_place;
+			
+
+			
+			$app->date_of_birth  = $request->date_of_birth;
+
+			//$app->date_of_birth          = $request->date_of_birth;
+
+
 			$app->aadhar_no              = $request->aadhar_no;
 
 			$app->father_income            = $request->father_income;

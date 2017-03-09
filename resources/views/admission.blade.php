@@ -433,6 +433,107 @@ foreach ($nationalities as $nationality) {
                     </div>
                 </div>
             </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="caption font-dark" style="margin-top: 10px;">
+                                            <i class="icon-settings font-dark"></i>
+                                            <span class="caption-subject bold uppercase"> Admission</span>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="btn-group pull-right">
+                                            <div class="tools"> </div>
+                                            <div class="portlet-body">
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" >
+                                    <thead>
+                                        <tr>
+                                            <th> SNO.</th>
+                                            <th> First Name </th>
+                                            <th> Last Name </th>
+                                            <th> Gender </th>
+                                            <th> Date Of Birth</th>
+                                            <th> Religion </th>
+                                            <th> Caste </th>
+                                            <th> Nationality </th>
+                                            <th> Place Of Birth</th>
+                                            <th> Aadhar Number </th>
+                                            <th> Motehr Tongue  </th>
+                                            <th> Father's Name </th>
+                                            <th> Mother's Name</th>
+                                            <th> Father's Income </th>
+                                            <th> Guardian's Name </th>
+                                            <th> Occupation </th>
+                                            <th> Mobile 1 </th>
+                                            <th> Mobile 2 </th>
+                                            <th> Email 1 </th>
+                                            <th> Email 2 </th>
+                                            <th> Present Address </th>
+                                            <th> Permanent Address </th>
+                                            <th> Class </th>
+                                            <th> Section </th>
+                                            <th> Previous School </th>
+                                            <th> Roll No </th>
+                                            <th> Status </th>
+                                            <th> Actions </th>
+                                        </tr>
+                                    </thead>
+            
+                                    <tbody><?php $i = 1;?>
+                                        @foreach($alladmissions as $admissions)
+                                        <?php if ($i%2 == 0) {$odd_even = "odd gradeX";} else { $odd_even = "even gradeX";}$i++;
+                                        ?>
+                                        <tr class="<?php echo $odd_even;?>">
+                                            <td class="SNO"> </td>
+                                            <td> {{ $admissions->first_name }} </td>
+                                            <td> {{ $admissions->last_name }} </td>
+                                            <td> {{ $admissions->genderi }} </td>
+                                            <td> {{ $admissions->date_of_birth }} </td>
+                                            <td> {{ $religionnames[$admissions->religion] }} </td>
+                                            <td> {{ $castenames[$admissions->caste] }} </td>
+                                            <td> {{ $nationalitynames[$admissions->nationality] }} </td>
+                                            <td> {{ $admissions->birth_place }} </td>
+                                            <td> {{ $admissions->aadhar_no }} </td>
+                                            <td> {{ $mothertonguenames[$admissions->mother_tongue] }} </td>
+                                            <td> {{ $admissions->father_name }} </td>
+                                            <td> {{ $admissions->mother_name }} </td>
+                                            <td> {{ $admissions->father_income }} </td>
+                                            <td> {{ $admissions->guardian_name }} </td>
+                                            <td> {{ $occupationnames[$admissions->occupation] }} </td>
+                                            <td> {{ $admissions->mobile_1 }} </td>
+                                            <td> {{ $admissions->mobile_2 }} </td>
+                                            <td> {{ $admissions->email_1 }} </td>
+                                            <td> {{ $admissions->email_2 }} </td>
+                                            <td> {{ $admissions->present_address }} </td>
+                                            <td> {{ $admissions->permanent_address }} </td>
+                                            <td> {{ $classnames[$admissions->class_name] }} </td>
+                                            <td> {{ $sectionnames[$admissions->section_name] }} </td>
+                                            <td> {{ $admissions->previous_school }} </td>
+                                            <td> {{ $admissions->roll_no }} </td>
+                                            <td>    <?php if ($admissions->status == 1) {?>
+                                            <span class="label label-sm label-info"> Active </span>
+                                            <?php } else if ($admissions->status == 2) {?>
+                                            <span class="label label-sm label-warning"> Suspended </span>
+                                            <?php } else if ($admissions->status == 0) {?>
+                                            <span class="label label-sm label-danger"> Deleted </span>
+                                            <?php }?>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>    
         </div>
     </div>
 </div>

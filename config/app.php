@@ -168,7 +168,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
-
+        // CARBON FOR DATE FORMAT
+        //App\Http\Controllers\Carbon\Carbon\Carbon::class;
         /*
          * Package Service Providers...
          */
@@ -233,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        //'Carbon' => Carbon\Carbon::class;
 
     ],
 
