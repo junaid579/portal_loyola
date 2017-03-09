@@ -1,15 +1,16 @@
 $(document).ready(function() {
     $("#sample_1").on("click",".edit-data", function(){
+
         $("#edit_form")[0].reset();
         $("#edit_id").val( $(this).data("id") );
-        $("#edit_stationeryGroupMaster").val( $(this).data("stationeryGroupMaster") );
-        $("#edit_stationeryItem").val( $(this).data("stationeryItem") );
+        $("#edit_stationeryGroupMaster").val( $(this).data("stationerygroupmaster") );
+        $("#edit_stationeryItem").val( $(this).data("stationeryitem") );
         $("#edit_quantity").val( $(this).data("quantity") );
     });
     $("#sample_1").on("click",".view-data", function(){
         $("#view_stationeryGroupMaster, #view_stationeryItem, #view_quantity").html("");
-        $("#view_stationeryGroupMaster").html( $(this).data("stationeryGroupMaster") );
-        $("#view_stationeryItem").html( $(this).data("stationeryItem") );
+        $("#view_stationeryGroupMaster").html( $(this).data("stationerygroupmaster") );
+        $("#view_stationeryItem").html( $(this).data("stationeryitem") );
         $("#view_quantity").html( $(this).data("quantity") );
     });
     var t = $('#sample_1').DataTable( {
