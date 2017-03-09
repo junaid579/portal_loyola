@@ -69,7 +69,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
                         </li>
                         <li>
                             <a data-toggle="modal" href="#responsive" data-id="{{ $adjustmentMaster->id }}" data-adjustment_reason="{{ $adjustmentMaster->adjustment_reason }}" class="edit-data"><i class="icon-tag"></i> Edit </a>
-                        </li>{{-- For actions Delete and Suspend buttons function --}}
+                        </li>
+                        {{-- For actions Delete and Suspend buttons function --}}
                     @include('layout.actions',array('loopobj'=>$adjustmentMaster,'blade_name'=>'adjustmentmaster'))
                 </div>
             </td>

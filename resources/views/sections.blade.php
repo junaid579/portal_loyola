@@ -100,7 +100,6 @@ foreach ($classes as $class) {
 </form>
 @include('layout.datatableclosing')
 
-
 @include('layout.modalformopen',array('mid'=>'view-data-model','formheading'=>'View Section','action'=>'','fnid'=>''))
 @include('layout.forminputvalue',array('ft'=>'Classes','fin'=>'view_classes'))
 @include('layout.forminputvalue',array('ft'=>'Section','fin'=>'view_section'))

@@ -60,7 +60,7 @@ class adjustmentMasterController extends Controller {
 
             if ($s_adjustment_reason != "") {$query     = $query->where('adjustment_reason', 'like',"%".$s_adjustment_reason."%");}
       
-
+            $alladjustmentMaster = $query->get();
 
             return view('adjustmentmaster')->with(compact(
                 'alladjustmentMaster'
