@@ -25,6 +25,15 @@ foreach ($paymentTypes as $paymentType) {
 foreach ($staffs as $satff) {
 	$staffnames[$satff->id] = $satff->id;
 }?>
+<?php $admissionnames = array();
+foreach ($admissions as $admission) {
+	$admissionnames[$admission->id] = $admission->id;
+}?>
+
+@include('layout.tiles',array('redirection'=>'/admission','tile_name'=>'',
+								'caption'=>'Student Admission','tile_color'=>'grey',
+									'count'=>'Enroll a Student'))
+
 @include('layout.tiles',array('redirection'=>'/sections','tile_name'=>'Sections',
 								'caption'=>'Add a Section','tile_color'=>'red',
 									'count'=>$sectionsnames[$section->id] = $section->id))
@@ -41,6 +50,7 @@ foreach ($staffs as $satff) {
 @include('layout.tiles',array('redirection'=>'/staff','tile_name'=>'Our Staff',
 								'caption'=>'Add a Staff member','tile_color'=>'green',
 									'count'=>$staffnames[$satff->id] = $satff->id))
+
 
 <?php $js = array("js/subjects.js");?>
 @include('layout.footer',array('js' =>$js))
