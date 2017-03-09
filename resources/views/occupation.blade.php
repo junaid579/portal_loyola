@@ -2,11 +2,11 @@
 @include('layout.topmenu')
 @include('layout.leftsidemenu')
 
-<?php $breadcrumb = array("Home", "Occupation");
+@php $breadcrumb = array("Home", "Occupation");
 $breadcrumb_url   = array("dashboard", "occupation");
 $breadcrumbs      = array_combine($breadcrumb, $breadcrumb_url);
 $title            = "Occupation";
-$data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
+$data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);@endphp
 @include('layout.breadcrumb',array('data'=>$data))
 
 @include('layout.messages')
@@ -21,7 +21,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 <form action="occupation" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="post">
-    <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
+    <input type="hidden" name="_token" value="@php echo csrf_token();@endphp">
     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
         <thead>
         <tr>
@@ -34,26 +34,26 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
         <tfoot>
         <tr>
             <th> - </th>
-            <th> <input type="text" name="search_occupation_details" id="search_occupation_details" value="<?php echo $search_occupation_details;?>" class="form-control form-filter" /></th>
-           
+            <th> <input type="text" name="search_occupation_details" id="search_occupation_details" value="@php echo $search_occupation_details;@endphp" class="form-control form-filter" /></th>
+            
             {{-- For search buttons  --}} 
            @include('layout.search',['blade_name'=>'occupation'])
         </tr>
         </tfoot>
-        <tbody><?php $i = 1;?>
+        <tbody>@php $i = 1;@endphp
         @foreach($alloccupations as $occupation)
-            <?php if ($i%2 == 0) {$odd_even = "odd gradeX";} else { $odd_even = "even gradeX";}$i++;
-            ?>
-            <tr class="<?php echo $odd_even;?>">
+            @php if ($i%2 == 0) {$odd_even = "odd gradeX";} else { $odd_even = "even gradeX";}$i++;
+            @endphp
+            <tr class="@php echo $odd_even;@endphp">
                 <td class="SNO"> </td>
                 <td> {{ $occupation->occupation_details }} </td>
-                <td>    <?php if ($occupation->status == 1) {?>
+                <td>    @php if ($occupation->status == 1) {@endphp
                     <span class="label label-sm label-info"> Active </span>
-                    <?php } else if ($occupation->status == 2) {?>
+                    @php } else if ($occupation->status == 2) {@endphp
                     <span class="label label-sm label-warning"> Suspended </span>
-                    <?php } else if ($occupation->status == 0) {?>
+                    @php } else if ($occupation->status == 0) {@endphp
                     <span class="label label-sm label-danger"> Deleted </span>
-                    <?php }?>
+                    @php }@endphp
                 </td>
                 <td>
                     <div class="btn-group">
@@ -89,7 +89,7 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);?>
 
 @include('layout.modalformclose')
 
-<?php $js = array("js/occupation.js");?>
+@php $js = array("js/occupation.js");@endphp
 @include('layout.footer',array('js' =>$js))
 
 
