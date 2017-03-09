@@ -495,7 +495,7 @@ foreach ($nationalities as $nationality) {
             <td class="SNO"> </td>
             <td> {{ $admissions->first_name }} </td>
             <td> {{ $admissions->last_name }} </td>
-            <td> {{ $admissions->genderi }} </td>
+            <td> {{ $admissions->gender }} </td>
             <td> {{ $admissions->date_of_birth }} </td>
             <td> {{ $religionnames[$admissions->religion] }} </td>
             <td> {{ $castenames[$admissions->caste] }} </td>
