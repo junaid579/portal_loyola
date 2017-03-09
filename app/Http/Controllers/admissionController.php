@@ -14,6 +14,7 @@ use App\Http\Models\admissionModel;
 use DB;
 use Illuminate\Http\Request;
 use Session;
+use DateTime;
 // use App\Http\Controllers\Carbon\Carbon;
 
 class admissionController extends Controller {
@@ -90,16 +91,12 @@ class admissionController extends Controller {
 			$app->religion              = $request->religion ;
 			$app->mother_tongue         = $request->mother_tongue;
 			$app->nationality         = $request->nationality;
-			
-
-			
+			$app->birth_place         = $request->birth_place;			
 			$app->date_of_birth  = $request->date_of_birth;
 
 			//$app->date_of_birth          = $request->date_of_birth;
-
-
+			$app->date_of_birth =   DateTime::createFromFormat('d-m-Y', $request->date_of_birth)->format('Y-m-d');
 			$app->aadhar_no              = $request->aadhar_no;
-
 			$app->father_income            = $request->father_income;
 			$app->father_name              = $request->father_name;
 			$app->mother_name              = $request->mother_name;
@@ -158,6 +155,8 @@ class admissionController extends Controller {
 			$s_section                    = $request->search_section; 
 			$s_previous_school          = $request->search_previous_school;
 			$s_roll_no                = $request->search_roll_no;
+			$s_status                = $request->search_status;
+
 
 			
 
@@ -187,6 +186,7 @@ class admissionController extends Controller {
 				'search_section' => $s_section ,
 				'search_roll_no' => $s_roll_no,
 				'search_previous_school' => $s_previous_school,
+				'search_status' => $s_status,
 			);
 
 			$query = testmasterModel::select('*');  
@@ -216,6 +216,7 @@ class admissionController extends Controller {
 		if ($s_section!="") {$query=$query->where('section','like',"%".$s_section."%");}
 		if ($s_previous_school !="") {$query=$query->where('roll_no','like',"%".$s_previous_school ."%");}
 		if ($s_roll_no!="") {$query=$query->where('previous_school' ,'like',"%".$s_roll_no."%");}
+		if ($s_status!="") {$query=$query->where('status' ,'like',"%".$s_status."%");}
 
 			$alladmissions = $query->get();
 
