@@ -76,13 +76,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);@end
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $nationalities->id }}" data-nationality="{{ $nationalities->nationality }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            @php if ($nationalities->status == 1) {@endphp
-                            <li>
-                            @php } else if ($nationalities->status == 2) {@endphp
-                            <li>
-                            @php }@endphp
-                        </ul>
+                            {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$nationalities,'blade_name'=>'nationality'))
                     </div>
                 </td>
             </tr>

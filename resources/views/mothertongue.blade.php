@@ -76,13 +76,8 @@ $data             = array('breadcrumbs' => $breadcrumbs, 'title' => $title);@end
                             <li>
                                 <a data-toggle="modal" href="#responsive" data-id="{{ $tongues->id }}" data-mother_tongue="{{ $tongues->mother_tongue }}"  class="edit-data"><i class="icon-tag"></i> Edit </a>
                             </li>
-                            <li class="divider"> </li>
-                            @php if ($tongues->status == 1) {@endphp
-                            <li>
-                            @php } else if ($tongues->status == 2) {@endphp
-                            <li>
-                            @php }@endphp
-                        </ul>
+                            {{-- For actions Delete and Suspend buttons function --}}
+                    @include('layout.actions',array('loopobj'=>$tongues,'blade_name'=>'mothertongue'))
                     </div>
                 </td>
             </tr>
