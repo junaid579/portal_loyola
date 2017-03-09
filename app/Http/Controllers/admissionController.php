@@ -308,7 +308,7 @@ class admissionController extends Controller {
 		return redirect('/admission');
 	}
 	public function statusupdate($id, $status) {
-		$app         = testmasterModel::find($id);
+		$app         = admissionModel::find($id);
 		$app->m_on   = DB::raw('NOW()');
 		$app->m_by   = Session::get('userid');
 		$app->status = $status;
