@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
+
 class transportPickupModel extends MyBaseModel {
 
 	protected $connection = 'key';
@@ -13,15 +14,12 @@ class transportPickupModel extends MyBaseModel {
 	public $timestamps  = false;
 
 	public function getTransportPickupTerms(){
-
     	$twowayconcat 	 = DB::raw('GROUP_CONCAT(ttbu.twoway_term_amount) AS twowayconcat');
 		$onewayconcat 	 = DB::raw('GROUP_CONCAT(ttbu.oneway_termamount) AS onewayconcat');
 		$termmonthconcat = DB::raw('GROUP_CONCAT(ttbu.term_month) AS termmonthconcat');
 		$termyearconcat  = DB::raw('GROUP_CONCAT(ttbu.term_year) AS termyearconcat');
 		$termsids  = DB::raw('GROUP_CONCAT(ttbu.id) AS termsids');
-
 		return $this
-
 			->from( 'transport_pickup as tpu')
             ->join('transport_term_break_up as ttbu', 'tpu.id', '=', 'ttbu.pickup_id')
             ->select('tpu.id as tpuid', 'tpu.pickup_point_name', 'tpu.two_way_amount', 'tpu.one_way_amount', 
@@ -29,7 +27,6 @@ class transportPickupModel extends MyBaseModel {
             ->groupby('tpuid')
             ->where([['tpu.status','!=', '0'],['ttbu.status','!=','0']])
             ->get(); 
-
     }
 
     public function getTransportPickupTermsSearch($search){

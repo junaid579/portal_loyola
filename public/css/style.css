@@ -1,0 +1,17 @@
+.side{
+	display: inline !important;
+}
+.side-text{
+	display: table-cell;
+	margin-bottom: 0;
+    overflow: hidden;
+    padding-top: 10px;
+    text-align: center;
+    width: 145px !important;
+}
+.bold{
+	font-weight: 600 !important;
+}
+b{
+	font-weight: 600 !important;
+}

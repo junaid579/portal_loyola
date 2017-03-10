@@ -149,7 +149,11 @@ Route::get('/admission/{id}/{status}', 'admissionController@statusupdate');
 // Route::get('admission', function () {
 //     return view("admission");
 // });
-
+Route::get('/transportpickuppointfee', 'pickuppointController@index');
+Route::post('/transportpickuppointfee', 'pickuppointController@findAction');
+//sRoute::post('/transportpickuppointfee', 'pickuppointController@insert');
+Route::get('/transportpickuppointfee/{id}/{status}', 'pickuppointController@statusupdate');
+Route::put('/transportpickuppointfee', 'pickuppointController@update');
 
 
 Route::get('/dashboard', 'dashboardController@dashboard');
