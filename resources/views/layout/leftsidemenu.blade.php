@@ -108,6 +108,11 @@
             <span class="title">Pickup Points</span>
             </a>
           </li>
+          <li class="nav-item start ">
+            <a href="transportpickuppointfee" class="nav-link ">
+            <span class="title">Transport Pick up Fee</span>
+            </a>
+          </li>
         </ul>
       </li>
       <li class="nav-item start ">
