@@ -21,7 +21,7 @@ var FormValidation = function () {
                     }
                 },
                 rules: {
-                    name: {
+                    first_name: {
                         minlength: 2,
                         required: true
                     },

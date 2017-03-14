@@ -10,6 +10,7 @@ use App\Http\Models\religionModel;
 use App\Http\Models\mothertongueModel;
 use App\Http\Models\nationalityModel;
 use App\Http\Models\admissionModel;
+//use Alert;
 
 use DB;
 use Illuminate\Http\Request;
@@ -80,46 +81,67 @@ class admissionController extends Controller {
 
 	public function findAction(Request $request) {
 		if ($request->has('insert_submit')) {
-
-			
-
 			$app                  = new admissionModel;
-			$app->first_name              = $request->first_name;
-			$app->last_name              = $request->last_name;
-			$app->gender                  = $request->genderi;
-			$app->caste              = $request->caste;
-			$app->religion              = $request->religion ;
-			$app->mother_tongue         = $request->mother_tongue;
-			$app->nationality         = $request->nationality;
-			$app->birth_place         = $request->birth_place;			
-			$app->date_of_birth  = $request->date_of_birth;
+
+			if (preg_match('/^[a-z ]+$/i', $request->first_name)) {
+                $app->first_name = $request->first_name;
+            	}
+            else{
+            	Session::flash('error_message', 'Please enter a First Name ! Try again!');
+				return redirect('/admission');		            
+				}
+			if (preg_match('/^[a-z ]+$/i', $request->last_name)) {
+                $app->last_name = $request->last_name;
+            	}
+            else{
+            	Session::flash('error_message', 'Please enter a Last Name ! Try again!');
+				return redirect('/admission');		            
+				}
+
+			$app->gender                  = $request->gender;
+			$app->caste              	  = $request->caste;
+			$app->religion             	  = $request->religion ;
+			$app->mother_tongue           = $request->mother_tongue;
+			$app->nationality         	  = $request->nationality;
+			$app->birth_place         	  = $request->birth_place;			
+			$app->date_of_birth 		  = $request->date_of_birth;
 
 			//$app->date_of_birth          = $request->date_of_birth;
 			$app->date_of_birth =   DateTime::createFromFormat('d-m-Y', $request->date_of_birth)->format('Y-m-d');
-			$app->aadhar_no              = $request->aadhar_no;
+			if (preg_match("/^(09|63)[\d]{9}$/m", $request->aadhar_no)) {
+                $app->aadhar_no = $request->aadhar_no;
+            	}
+            else{
+            	Session::flash('error_message', 'Aadhar Number  wrong! Try again!');
+				return redirect('/admission');		            
+				}
 			$app->father_income            = $request->father_income;
 			$app->father_name              = $request->father_name;
 			$app->mother_name              = $request->mother_name;
 			$app->occupation          = $request->occupation;
 			$app->guardian_name          = $request->guardian_name;
 
-			$app->mobile_1                = $request->mobile_1;
-			$app->mobile_2                = $request->mobile_2;
-			$app->email_1                = $request->email_1;
-			$app->email_2                = $request->email_2;
-			$app->present_address          = $request->present_address;
-			$app->permanent_address      = $request->permanent_address;
+			// validations using Preg_match
+			if (preg_match("/^(09|63)[\d]{9}$/m", $request->mobile_1)) {
+                $app->mobile_1 = $request->mobile_1;
+            	}
+            else{
+            	Session::flash('error_message', 'Mobile 1  wrong! Try again!');
+				return redirect('/admission');		            
+				}
+			if (preg_match("/^(09|63)[\d]{9}$/m", $request->mobile_2)) {
+                $app->mobile_1 = $request->mobile_2;
+            	}
+            else{
+				Session::flash('error_message', 'Mobile Number 2 wrong! Try again!');
+			 	return redirect('/admission');	
+			 	}
+			if (preg_match("/^([a-zA-Z0-9z])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $request->email_1)) { $app->email_1 = $request->email_1;} 
+			else {
+			 	Session::flash('error_message', 'Email  wrong! Try again!');
+			 	return redirect('/admission');		
+				}
 
-			$app->class_name              = $request->class_name;
-			$app->section_name              = $request->section_name;
-			$app->previous_school          = $request->previous_school;
-			$app->roll_no                = $request->roll_no;
-
-			$app->status       = 1;
-			$app->c_on         = DB::raw('NOW()');
-			$app->c_by         = Session::get('userid');
-			$app->m_on         = DB::raw('NOW()');
-			$app->m_by         = Session::get('userid');
 
 			if ($app->save()) {
 				Session::flash('message', 'Student  '.$app->first_name .' successfully added');
@@ -128,7 +150,8 @@ class admissionController extends Controller {
 			}
 			return redirect('/admission');
 
-		} else if ($request->has('search_submit')) {
+			} 
+		else if ($request->has('search_submit')) {
 
 			$s_first_name              = $request->search_first_name;
 			$s_last_name              = $request->search_last_name;
@@ -157,8 +180,6 @@ class admissionController extends Controller {
 			$s_roll_no                = $request->search_roll_no;
 			$s_status                = $request->search_status;
 
-
-			
 
 			$search_data = array(
 				'search_first_name'    => $s_first_name	   ,
@@ -189,7 +210,7 @@ class admissionController extends Controller {
 				'search_status' => $s_status,
 			);
 
-			$query = testmasterModel::select('*');  
+			$query = admissionModel::select('*');  
 
 		if ($s_first_name!= "") {$query=$query->where('first_name','like',"%".$s_first_name."%");}
 		if ($s_last_name != "") {$query=$query->where('last_name', 'like',"%".$s_last_name ."%");}

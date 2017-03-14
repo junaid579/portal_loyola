@@ -9,6 +9,7 @@
 @include('layout.breadcrumb',array('data'=>$data))
 @include('layout.messages')
 {{-- START RETREIVING DATA IN ARRAYS FROM CONTROLLER--}}
+
 <?php $classnames = array();
   foreach ($classes as $class) {
       $classnames[$class->id] = $class->class_name;
@@ -52,7 +53,7 @@
       </div>
       {{-- TABS START --}}
       <div class="portlet-body form">
-        <form class="form-horizontal" action="admission" id="submit_form" method="POST">
+        <form class="form-horizontal" action="admission" name ="submit_form" id="submit_form" method="POST" onsubmit="return validateform()">
           {{ csrf_field() }}
           <div class="form-wizard">
             <div class="form-body">
@@ -112,6 +113,8 @@
                       </div>
                     </div>
                     <!--/span-->
+
+                         
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="control-label col-md-3">Last Name</label>
@@ -128,7 +131,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3">Gender</label>
                         <div class="col-md-9 input-medium">
-                          <select class="form-control" name = "genderi" id="genderi"  >
+                          <select class="form-control" name = "gender" id="gender"  >
                             <option value="1">Male</option>
                             <option value="0">Female</option>
                           </select>
@@ -684,5 +687,12 @@
 </div>
 </div>
 {{--END BODY CONTENT--}}
+<script type="text/javascript">
+  
+
+
+  
+</script>
+
 <?php $js = array("js/consessionType.js");?>
 @include('layout.footer',array('js' =>$js))

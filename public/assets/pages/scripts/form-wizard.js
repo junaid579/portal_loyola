@@ -24,7 +24,7 @@ var FormWizard = function () {
                 }
             });
 
-            /*var form = $('#submit_form');
+            var form = $('#submit_form');
             var error = $('.alert-danger', form);
             var success = $('.alert-success', form);
 
